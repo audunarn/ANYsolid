@@ -1,0 +1,716 @@
+{
+  "schema": 1,
+  "state": "PREPARED_NOT_EXECUTED_REQUIRES_INDEPENDENT_PREFLIGHT",
+  "question": "Can existing production Q4 generalized sections represent a physically centered homogeneous shell/solid transition when its nodal reference plane is shifted?",
+  "distinct_authority": "New physical-offset section-law investigation; no reuse or retry of the completed thirteen-case study",
+  "material": {
+    "E": 1000.0,
+    "nu": 0.0,
+    "G": 500.0,
+    "plane_stress_Q": [
+      [
+        1000.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1000.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        500.0
+      ]
+    ]
+  },
+  "geometry": {
+    "native_intervals": [
+      [
+        -1.0,
+        0.0
+      ],
+      [
+        1.0,
+        2.0
+      ]
+    ],
+    "solid_x_corners": [
+      0.0,
+      1.0
+    ],
+    "y_corners": [
+      0.0,
+      1.0
+    ],
+    "solid_z_corners": [
+      -0.1,
+      0.0,
+      0.1
+    ],
+    "thickness": 0.2,
+    "width": 1.0,
+    "span": 3.0,
+    "native_line_weights": [
+      0.5,
+      0.5
+    ],
+    "physical_material_center_z": 0.0,
+    "basis_order": 2,
+    "regions": 1,
+    "transitions": 2
+  },
+  "production_convention": {
+    "source": "ANYsolver/elements.py::_build_shell_b_matrices and e4_pl_element.py generalized section law",
+    "curvature": "kappa_xx=+theta_y,x; kappa_yy=-theta_x,y; strain(zeta)=epsilon_ref+zeta*kappa",
+    "law": "N=A*epsilon_ref+B*kappa; M=B.T*epsilon_ref+D*kappa",
+    "geometry": "z_ref=-e; zeta=z_global+e; physical director +z; trace_offset=e",
+    "integrated_section": "A=tQ; B=+e*tQ; D=(t^3/12+e^2*t)Q; As=(5/6)*G*t*I2",
+    "admission": "Existing public GeneralizedShellSection validates SPD; nonzero B requires authoritative reference_normal=(0,0,1), polarity+1",
+    "SPD_proof": "D-B.T*A^-1*B=(t^3/12)*Q positive; As positive",
+    "membrane_load_transport": "Fx=1 at globalz0 -> reference Fx1,My=e; global My=z_ref*Fx+My=0",
+    "bending_reference": "epsilon_ref=-e*a; kappa=a -> N0,M=E*a*t^3/12; ux_ref=-e*a*(x+1)",
+    "transport": "u_target=u_ref+theta cross (target-reference); e occurs once; no implicit native reference_surface_offset is set"
+  },
+  "sampling": {
+    "core_roi_x": [
+      0.25,
+      0.75
+    ],
+    "description": "All upstream quadrature samples in fixed interior interval; all9 Cauchy tensor components; scale5Pa membrane/.1Pa bending; no smoothing/exclusions"
+  },
+  "thresholds": {
+    "field_energy_relative": 0.01,
+    "stress_scaled_max": 0.05,
+    "registered_residual": 1e-09,
+    "work": 1e-10,
+    "resultant": 1e-08
+  },
+  "bounds": {
+    "maximum_solves": 4,
+    "maximum_primary_dofs": 2000,
+    "maximum_multiplier_rows": 40,
+    "process_tree_timeout_seconds": 90,
+    "one_process_only": true,
+    "partial_jsonl_flushed": true
+  },
+  "runtime": {
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "skfem": "12.0.2"
+  },
+  "source_hashes": {
+    "C:/Github/ANYsolid/src/anysolid/backend.py": "8061c166a0dc39eb312b0d5edbc9739b750900d587fddc53722d33d249357781",
+    "C:/Github/ANYsolid/src/anysolid/mesh.py": "befc8f69d8e7daf9c20f5c9e51e7312273ebf4f950ea803e6f9503576a87e803",
+    "C:/Github/ANYsolid/src/anysolid/coupling.py": "d649efbd40d1469750cf5bb80d7f9a2c7310550481b92ce2663779ff10d87f64",
+    "C:/Github/ANYsolid/src/anysolid/__init__.py": "c40914a030252ae7becb04a51c9fb56e238b9b3a913867028ce697b338edfa77",
+    "C:/Github/ANYsolver/src/anysolver/solids.py": "d149308d42b00b68529f5c9b0cc45daf5d07164fd91c875aacdb0dce03f0ea22",
+    "C:/Github/ANYsolver/src/anysolver/solid_trace.py": "f7e2e64f85ceb2442511b50d4e005cf2d98ad0b9ee6ca6e76a62c5ec7ed0b164",
+    "C:/Github/ANYsolver/src/anysolver/solid_residuals.py": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_element.py": "a1f7ce7e66be66ba6e9cceb80be27d5d7eeec38b01ad93673c264a4e008b00f4",
+    "C:/Github/ANYsolver/src/anysolver/elements.py": "55515cdf1dda318e54525e3511e992f12eb8ba013eadafc2c0bdd810796d86b7",
+    "C:/Github/ANYsolver/src/anysolver/shell_sections.py": "145eeee0014869bf60453e030f572682da4298d9c1e4bd9264bdc6a5a09fd5db",
+    "C:/Github/ANYsolver/src/anysolver/assembly.py": "588a2d576efb9a147c7d198b3e70b428889c2479947aeadd976a81b217b55c97",
+    "C:/Github/ANYsolver/src/anysolver/matrix_assembly.py": "0af529ca28bd44e9c59975420f01ca662fab9fdf3119814a887443288434775b",
+    "C:/Github/ANYsolver/src/anysolver/fe_core.py": "2377a0b492113a6ac80b009cebc9849c83867f7ac367f0a7d5d15d6c26153c0a",
+    "C:/Github/ANYsolver/src/anysolver/boundary.py": "d3ccfaf8c609392ba30b99427ad34ef7510f1babf84bc7006b6ba4eff28888a8",
+    "C:/Github/ANYsolver/tests/test_generalized_shell_sections.py": "b1beb5915dec4eefaac5bd42747794ea780cc007f57a58918c9efe00f6ef5b93",
+    "C:/Github/ANYsolver/tests/test_solid_coupling.py": "242a828fe82fefc73083d379acbdbe641e175bf3551dff0fa8ed8e5bc6e6432f"
+  },
+  "harness_sha256": "5d5deea4107c2e8a6d8723326cac5675e90e844ae5012cce9e3f23b8a835c029",
+  "harness_path": "C:/Github/ANYsolid/tools/offset_patch_study.py",
+  "cases": [
+    {
+      "id": "offset_plus05_membrane",
+      "profile": "membrane",
+      "offset": 0.05,
+      "native_reference_z": -0.05,
+      "trace_offset": 0.05,
+      "section": {
+        "A": [
+          [
+            200.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            200.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            100.0
+          ]
+        ],
+        "B": [
+          [
+            10.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            5.0
+          ]
+        ],
+        "D": [
+          [
+            1.1666666666666667,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1666666666666667,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5833333333333334
+          ]
+        ],
+        "As": [
+          [
+            83.33333333333333,
+            0.0
+          ],
+          [
+            0.0,
+            83.33333333333333
+          ]
+        ]
+      },
+      "exact_section_diagonals": {
+        "A": [
+          "200",
+          "200",
+          "100"
+        ],
+        "B": [
+          "10",
+          "10",
+          "5"
+        ],
+        "D": [
+          "7/6",
+          "7/6",
+          "7/12"
+        ],
+        "As": [
+          "250/3",
+          "250/3"
+        ]
+      },
+      "section_reference_strain": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "section_curvature": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_N": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_M": [
+        0.05,
+        0.0,
+        0.0
+      ],
+      "edge_force_x": 1.0,
+      "edge_moment_y": 0.05,
+      "exact_global_edge_moment_y": 0.0,
+      "references": {
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "moment_ref": 1.0,
+        "virtual_work_ref": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "epsilon": 0.005,
+        "tip_center_u": [
+          0.015,
+          0.0,
+          0.0
+        ],
+        "tip_native_ref_u": [
+          0.015,
+          0.0,
+          0.0
+        ],
+        "tip_rotation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20
+    },
+    {
+      "id": "offset_plus05_bending",
+      "profile": "bending",
+      "offset": 0.05,
+      "native_reference_z": -0.05,
+      "trace_offset": 0.05,
+      "section": {
+        "A": [
+          [
+            200.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            200.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            100.0
+          ]
+        ],
+        "B": [
+          [
+            10.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            10.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            5.0
+          ]
+        ],
+        "D": [
+          [
+            1.1666666666666667,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1666666666666667,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5833333333333334
+          ]
+        ],
+        "As": [
+          [
+            83.33333333333333,
+            0.0
+          ],
+          [
+            0.0,
+            83.33333333333333
+          ]
+        ]
+      },
+      "exact_section_diagonals": {
+        "A": [
+          "200",
+          "200",
+          "100"
+        ],
+        "B": [
+          "10",
+          "10",
+          "5"
+        ],
+        "D": [
+          "7/6",
+          "7/6",
+          "7/12"
+        ],
+        "As": [
+          "250/3",
+          "250/3"
+        ]
+      },
+      "section_reference_strain": [
+        -5e-05,
+        0.0,
+        0.0
+      ],
+      "section_curvature": [
+        0.001,
+        0.0,
+        0.0
+      ],
+      "section_expected_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_M": [
+        0.0006666666666666666,
+        0.0,
+        0.0
+      ],
+      "edge_force_x": 0.0,
+      "edge_moment_y": 0.0006666666666666666,
+      "exact_global_edge_moment_y": 0.0006666666666666666,
+      "references": {
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666666,
+        "displacement_ref": 0.0045,
+        "interface_displacement_refs": [
+          0.0045,
+          0.0045
+        ],
+        "displacement_check_scale": 0.0045,
+        "rotation_check_scale": 0.003,
+        "moment_ref": 0.0006666666666666666,
+        "virtual_work_ref": 3e-06,
+        "twice_energy": 2e-06,
+        "stress_scale": 0.1,
+        "curvature": 0.001,
+        "tip_center_u": [
+          0.0,
+          0.0,
+          -0.0045
+        ],
+        "tip_native_ref_u": [
+          -0.00015,
+          0.0,
+          -0.0045
+        ],
+        "tip_rotation": [
+          0.0,
+          0.003,
+          0.0
+        ]
+      },
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20
+    },
+    {
+      "id": "offset_minus05_membrane",
+      "profile": "membrane",
+      "offset": -0.05,
+      "native_reference_z": 0.05,
+      "trace_offset": -0.05,
+      "section": {
+        "A": [
+          [
+            200.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            200.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            100.0
+          ]
+        ],
+        "B": [
+          [
+            -10.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -10.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        ],
+        "D": [
+          [
+            1.1666666666666667,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1666666666666667,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5833333333333334
+          ]
+        ],
+        "As": [
+          [
+            83.33333333333333,
+            0.0
+          ],
+          [
+            0.0,
+            83.33333333333333
+          ]
+        ]
+      },
+      "exact_section_diagonals": {
+        "A": [
+          "200",
+          "200",
+          "100"
+        ],
+        "B": [
+          "-10",
+          "-10",
+          "-5"
+        ],
+        "D": [
+          "7/6",
+          "7/6",
+          "7/12"
+        ],
+        "As": [
+          "250/3",
+          "250/3"
+        ]
+      },
+      "section_reference_strain": [
+        0.005,
+        0.0,
+        0.0
+      ],
+      "section_curvature": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_N": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_M": [
+        -0.05,
+        0.0,
+        0.0
+      ],
+      "edge_force_x": 1.0,
+      "edge_moment_y": -0.05,
+      "exact_global_edge_moment_y": 0.0,
+      "references": {
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "moment_ref": 1.0,
+        "virtual_work_ref": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "epsilon": 0.005,
+        "tip_center_u": [
+          0.015,
+          0.0,
+          0.0
+        ],
+        "tip_native_ref_u": [
+          0.015,
+          0.0,
+          0.0
+        ],
+        "tip_rotation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20
+    },
+    {
+      "id": "offset_minus05_bending",
+      "profile": "bending",
+      "offset": -0.05,
+      "native_reference_z": 0.05,
+      "trace_offset": -0.05,
+      "section": {
+        "A": [
+          [
+            200.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            200.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            100.0
+          ]
+        ],
+        "B": [
+          [
+            -10.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -10.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -5.0
+          ]
+        ],
+        "D": [
+          [
+            1.1666666666666667,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.1666666666666667,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5833333333333334
+          ]
+        ],
+        "As": [
+          [
+            83.33333333333333,
+            0.0
+          ],
+          [
+            0.0,
+            83.33333333333333
+          ]
+        ]
+      },
+      "exact_section_diagonals": {
+        "A": [
+          "200",
+          "200",
+          "100"
+        ],
+        "B": [
+          "-10",
+          "-10",
+          "-5"
+        ],
+        "D": [
+          "7/6",
+          "7/6",
+          "7/12"
+        ],
+        "As": [
+          "250/3",
+          "250/3"
+        ]
+      },
+      "section_reference_strain": [
+        5e-05,
+        0.0,
+        0.0
+      ],
+      "section_curvature": [
+        0.001,
+        0.0,
+        0.0
+      ],
+      "section_expected_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "section_expected_M": [
+        0.0006666666666666666,
+        0.0,
+        0.0
+      ],
+      "edge_force_x": 0.0,
+      "edge_moment_y": 0.0006666666666666666,
+      "exact_global_edge_moment_y": 0.0006666666666666666,
+      "references": {
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666666,
+        "displacement_ref": 0.0045,
+        "interface_displacement_refs": [
+          0.0045,
+          0.0045
+        ],
+        "displacement_check_scale": 0.0045,
+        "rotation_check_scale": 0.003,
+        "moment_ref": 0.0006666666666666666,
+        "virtual_work_ref": 3e-06,
+        "twice_energy": 2e-06,
+        "stress_scale": 0.1,
+        "curvature": 0.001,
+        "tip_center_u": [
+          0.0,
+          0.0,
+          -0.0045
+        ],
+        "tip_native_ref_u": [
+          0.00015,
+          0.0,
+          -0.0045
+        ],
+        "tip_rotation": [
+          0.0,
+          0.003,
+          0.0
+        ]
+      },
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20
+    }
+  ],
+  "terminal_behavior": "No numerical execution before independent review. Flushed identity and pre-solve prefix; no automatic retry or correction. API/assembly/rank/factorization/serialization exception stops remaining cases. Accuracy failures remain explicit without reference or tolerance changes.",
+  "claims": "Four Q4 section-fixture linear static patches only; no generalized material implementation, S3 offset admission, curved interfaces, finite kinematics, uniform stability or production promotion. Historical NO_GO evidence remains unchanged."
+}

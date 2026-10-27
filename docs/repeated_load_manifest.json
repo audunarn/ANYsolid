@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "purpose": "W1.5 nontrivial all-solid reusable factorization and complete tensor recovery measurement; no engineering accuracy or speedup claim",
+  "geometry": {"intervals_m": [[0,1],[0,0.25],[-0.1,0.1]], "subdivisions": [8,2,2]},
+  "material": {"elastic_modulus": 1000, "poisson_ratio": 0.3},
+  "space": "upstream scikit-fem P2, straight tetrahedra; x=0 fully clamped",
+  "loads": "b_i=0.001*(1,0.5*cos(i),0.25*sin(i+0.3)) N/m^3; exactly integrated from three independently assembled component loads",
+  "counts": [1,10,100,1000],
+  "reference": "independent explicit free-DOF SciPy SuperLU solve of three basis RHS; linear combination predicts every coefficient, strain and stress. This is host/reuse equivalence, not an independent elasticity reference.",
+  "resultant_policy": "Only prescribed-support reactions plus every external load enter global force/moment balance; report the force and moment components separately. Do not sum free-DOF residuals as if they were support reactions.",
+  "equivalence_policy": "Every coefficient/strain/stress and work error is normalized separately for each RHS; accept the maximum per-RHS error. Report one explicit reference LU separately from the single reusable host factorization.",
+  "normalization": {"L_m":1,"force_N":0.0000875,"displacement_m":0.000175},
+  "normalization_derivation": "F_ref=volume(0.05)*max_L1_body_density(0.00175). I_min=0.25*0.2^3/12; U_ref=F_ref*L^3/(3*E*I_min)=0.000175 m, the tip-resultant cantilever bending reference, fixed before execution.",
+  "acceptance": {"coefficient_tensor_equivalence_relative":1e-10,"work_relative":1e-10,"force_moment_scaled":1e-8,"registered_residuals":1e-9,"factorization_count":1,"cold_cache_hit":false,"subsequent_cache_hit":true},
+  "measurements": ["mesh snapshot conversion", "backend preparation", "cold stiffness assembly", "warm stiffness copy", "load assembly", "host reconstruction and solve", "cumulative factorization and solve times", "streaming complete recovery for every RHS", "matrix/output array bytes", "process working-set snapshot and lifetime peak"],
+  "bounds": {"maximum_solid_dofs":2000,"maximum_total_rhs":1111,"maximum_reference_rhs":3,"process_tree_timeout_seconds":180,"maximum_attempts":1},
+  "failure_policy":"Retain partial evidence and stop this registered attempt; no automatic retry or tolerance/physics/reference changes. Condensation remains disabled. Numerical reviewer must inspect before adjudicating W1.5."
+}

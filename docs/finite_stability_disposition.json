@@ -1,0 +1,11 @@
+{
+  "state": "CONSUMED_SCIENTIFIC_NO_GO",
+  "manifest_sha256": "1a3535858ccb045e9842c84994bb4a2617a8a50e331efa42e94f14927d744901",
+  "harness_sha256": "fecbd10f83d306e0929fc4a136408c16dc18d19570b98c7ec5c86ec6ef163be9",
+  "evidence": "evidence/w1/workflow1-finite-stability-dd745908f7",
+  "operator_assessments_consumed": 18,
+  "coupled_solves_consumed": 12,
+  "full_solid_reference_solves_consumed": 6,
+  "process_seconds": 35.78100000000268,
+  "disposition": "Do not rerun or relax. Newcandidate study requires a separate prospectivecontract and independentreview."
+}

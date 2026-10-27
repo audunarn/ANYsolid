@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "state": "REVIEWED_READY",
+  "purpose": "Connected native beam/common-shell-node plus weaklycoupled P2solid exactgeneralized-load patch; not continuumjointstress qualification",
+  "prerequisite": "Parent disposition PASSED_FINITE_CANDIDATE_B required; no execution before revisedBscientificacceptance",
+  "beam_section": {
+    "area": 0.1,
+    "Iy": 0.00033333333333333343,
+    "Iz": 0.0020833333333333333,
+    "J": 0.001,
+    "orientation": [
+      0,
+      0,
+      1
+    ]
+  },
+  "section_scope": "A/I match .5m\u00d7.2m rectangle. FixedpositiveJ is unloaded here; no torsional accuracyclaim. Linear idealizedpointjoint, not resolvedCAD/3Djunction.",
+  "geometry": "Originalnshell1/nsolid1 span[-1,2] fixture; appendxbeamfromnativecorner(2,0,0)to(3,0,0). ExistingnativeDOFsunchanged, rebuildtracesafterappend. Corex[0,1],y[0,1],z+/-.1.",
+  "cases": [
+    {
+      "id": "axial",
+      "half_force": 0.5,
+      "half_moment": 0.0,
+      "force_reference": 1.0,
+      "U": 0.02,
+      "translation_check": 0.02,
+      "rotation_check": 0.005,
+      "output_factor": 4.0,
+      "twice_energy": 0.0175,
+      "stress_check": 5.0
+    },
+    {
+      "id": "bending",
+      "half_force": 0.0,
+      "half_moment": 0.00033333333333333343,
+      "force_reference": 0.0006666666666666669,
+      "U": 0.008,
+      "translation_check": 0.008,
+      "rotation_check": 0.004,
+      "output_factor": 2.0,
+      "twice_energy": 2.333333333333334e-06,
+      "stress_check": 0.1
+    }
+  ],
+  "reference": "Axialu_x=.005*(x+1),theta0,solidstressxx5Pa. Bendingu_x=.001*(x+1)*z,u_z=-.001*(x+1)^2/2,theta_y=.001*(x+1),solidstressxx=zPa. BeamEA/2plateEA andEI/2plateEI givehalfedgeforce/couple atjoint. Othernativeendcorner getsotherhalf; beamtipgetsfirsthalf. NoK*u loads.",
+  "loads": "ActualhalfFx orMy atbeamtip andotherplateshellendcorner, no externaljointload; internalbeamrootactionscheckednegativehalf, tippositivehalf.",
+  "limits": {
+    "physical_output_amplification": 1000000.0,
+    "modal_traction_couple_amplification": 5000000.0,
+    "residual": 1e-09,
+    "work_symmetry": 1e-10,
+    "force_moment_joint": 1e-08,
+    "field_energy": 0.009,
+    "stress": 0.045
+  },
+  "bounds": {
+    "primary_dofs": 1000,
+    "multiplier_rows": 40,
+    "metric_cases": 2,
+    "physical_rhs": 2,
+    "process_tree_timeout_seconds": 60,
+    "internal_deadline_seconds": 55,
+    "maximum_attempts": 1
+  },
+  "runtime": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "skfem": "12.0.2"
+  },
+  "source_sha256": {
+    "C:\\Github\\ANYsolid\\tools\\extended_patch_study.py": "26f8622e2aafd2a5c3c45d242f19398b1a64063a7e1d4d0b6910112055038ee3",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\backend.py": "8061c166a0dc39eb312b0d5edbc9739b750900d587fddc53722d33d249357781",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\mesh.py": "befc8f69d8e7daf9c20f5c9e51e7312273ebf4f950ea803e6f9503576a87e803",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\coupling.py": "d649efbd40d1469750cf5bb80d7f9a2c7310550481b92ce2663779ff10d87f64",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solids.py": "d149308d42b00b68529f5c9b0cc45daf5d07164fd91c875aacdb0dce03f0ea22",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solid_trace.py": "f7e2e64f85ceb2442511b50d4e005cf2d98ad0b9ee6ca6e76a62c5ec7ed0b164",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solid_residuals.py": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\e4_pl_element.py": "a1f7ce7e66be66ba6e9cceb80be27d5d7eeec38b01ad93673c264a4e008b00f4",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\elements.py": "55515cdf1dda318e54525e3511e992f12eb8ba013eadafc2c0bdd810796d86b7",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\assembly.py": "588a2d576efb9a147c7d198b3e70b428889c2479947aeadd976a81b217b55c97",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\matrix_assembly.py": "0af529ca28bd44e9c59975420f01ca662fab9fdf3119814a887443288434775b",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\fe_core.py": "2377a0b492113a6ac80b009cebc9849c83867f7ac367f0a7d5d15d6c26153c0a",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\boundary.py": "d3ccfaf8c609392ba30b99427ad34ef7510f1babf84bc7006b6ba4eff28888a8",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\multiplier.py": "03706a167e6d7ddf77c2afd81e55142273a005abf42e376448af6951a4d515e8",
+    "C:\\Github\\ANYsolver\\tests\\test_solid_coupling.py": "242a828fe82fefc73083d379acbdbe641e175bf3551dff0fa8ed8e5bc6e6432f",
+    "C:\\Github\\ANYsolid\\tools\\finite_stability_study.py": "fecbd10f83d306e0929fc4a136408c16dc18d19570b98c7ec5c86ec6ef163be9"
+  },
+  "harness_sha256": "0b66f9c92d6dc52a3df38f2ceec3eeb839a1565db29f51d6d4c5983425c0ae71",
+  "failure_policy": "Oneprospectivereviewedattemptonly, preserveNO_GO/partialoutputs; no automaticretry/retuning; allresearchuntilcompleteWorkflow1gates.",
+  "fresh_authority": "User2026-10-27: Fix beam harness and run fresh verification; prior attempt remains consumed.",
+  "preserved_failed_evidence": "evidence/w1/workflow1-connected-beam-d8b983a20d",
+  "prior_harness_sha256": "868be2a843018632a54cc898b922d237dec080feaa21498b934359d66810868c",
+  "prior_manifest_sha256": "49c930ca8473b2f83cddf9ca33e006c5e2ec5aae7420d432bc53339f588ca9fb",
+  "changes": "Correct material owner lookup; retain solved coefficient/load/reaction/matrix snapshot before physical postprocessing. All physical inputs, checks, normalizations, limits and numerical bounds unchanged."
+}

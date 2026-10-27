@@ -1,0 +1,111 @@
+{
+  "status": "ACCEPTED_EIGHT_OWNER_PLATFORM_SNAPSHOT_CELLS",
+  "stage": "evidence\\w1\\adapter-platform-20261027T124413Z-f423d33f",
+  "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e",
+  "complete": true,
+  "test_budget_seconds": 1200,
+  "current_production_and_build_input_hashes_equal": true,
+  "cells": {
+    "windows311": {
+      "status": "passed",
+      "counts": {
+        "tests": 194,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+    },
+    "windows312": {
+      "status": "passed",
+      "counts": {
+        "tests": 194,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+    },
+    "windows313": {
+      "status": "passed",
+      "counts": {
+        "tests": 194,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+    },
+    "windows314": {
+      "status": "passed",
+      "counts": {
+        "tests": 194,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+    },
+    "linux311": {
+      "status": "passed",
+      "counts": {
+        "tests": 195,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+    },
+    "linux312": {
+      "status": "passed",
+      "counts": {
+        "tests": 195,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+    },
+    "linux313": {
+      "status": "passed",
+      "counts": {
+        "tests": 195,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+    },
+    "linux314": {
+      "status": "passed",
+      "counts": {
+        "tests": 195,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "cleanup_verified": true,
+      "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+    }
+  },
+  "lineage": "Windows194testsnapshotresultsimported; freshLinuxsnapshotaddsonefocusedtemporaryworkspaceunit; production/buildinputsidentical.",
+  "scope": "Local Windows and Ubuntu24.04 owner snapshots, not clean-checkout/remoteCI/ANYsolverfullCI/coupling qualification",
+  "later_tooling_validation": {
+    "windows_focused_passes": 19,
+    "linux_focused_passes": 19,
+    "current_full_profile_tests": 331,
+    "current_full_profile_failures": 0,
+    "evidence": "evidence/development/20261027T125640Z-901c9157"
+  },
+  "review": "Parent independently inspected all8phase receipts/counts/origins and unchanged currentproduction/buildinputs; toolingpostfix testedseparately, no fresh8cellclaimforlaternonproducthelperbytes",
+  "matrix_ledger_seconds": 77.91469707399348,
+  "total_owned_test_seconds_including_later_focused_checks": 88.43966170901281,
+  "final_report": "evidence/w1/adapter-platform-20261027T124413Z-f423d33f/final-report.json"
+}

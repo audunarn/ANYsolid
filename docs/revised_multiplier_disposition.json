@@ -1,0 +1,12 @@
+{
+  "status": "PASSED_FINITE_CANDIDATE_B",
+  "scope": "18registeredoperators12physicalcases6validatedreusedreferences only; notuniversalorproductionqualification",
+  "evidence": "evidence/w1/workflow1-revised-multiplier-b1dde87f2a",
+  "old_A": "FAILED_UNCHANGED",
+  "independent_review": "same-family non-author confirmed allgates and source/runtime/counts;28.031seconds cleanup0",
+  "maximum_dual_amplification": 1257436.621308579,
+  "dual_limit": 5000000.0,
+  "maximum_physical_output_amplification": 16014.523018231786,
+  "physical_output_limit": 1000000.0,
+  "new_registration_consumed": true
+}

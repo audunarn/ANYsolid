@@ -1,0 +1,31 @@
+{
+  "status": "SCIENTIFIC_NO_GO_REFERENCE_CONVERGENCE",
+  "evidence": "evidence/w1/transition-distance-6b4550d018",
+  "process_wall_seconds": 60.062000000005355,
+  "execution_failures": 0,
+  "reference_solves": 2,
+  "reference_individual_checks_passed": 2,
+  "reference_field_difference": 0.0029565802212485667,
+  "unchanged_reference_field_limit": 0.001,
+  "reference_energy_difference": 0.00043391547994759577,
+  "unchanged_reference_energy_limit": 0.001,
+  "reference_stress_difference": 0.0010265422643632193,
+  "unchanged_reference_stress_limit": 0.005,
+  "coupled_solves": 0,
+  "inverse_assessments": 0,
+  "registration_consumed": true,
+  "cleanup_active_processes": 0,
+  "review": "Independent non-author same-family source/runtime/result review confirmed reference gate failure and correct coupled refusal",
+  "controlling_saved_coefficient": {
+    "coordinates": [
+      2,
+      0.6875,
+      0.1
+    ],
+    "component": "uy",
+    "coarse": 0.0007670615335005832,
+    "fine": 0.0008114102368193117
+  },
+  "next_scope": "No third reference or rerun authorized by consumed registration. Prospective repair proposal only; all original samples and limits retained.",
+  "production": "NO_GO"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 2,
+  "policy": "registered_physical_v2",
+  "adopted": "2026-10-26 after explicit user approval of documented correction",
+  "previous_policy": "legacy_componentwise_v1 retained as diagnostics and archived failed evidence",
+  "thresholds": {"normwise_equilibrium": 1e-9, "normwise_constraint": 1e-9, "local_physical_equilibrium": 1e-9, "local_physical_constraint": 1e-9},
+  "coordinates": "D native translations=1, native rotations=L, solid translations=1; ubar=D*u",
+  "reduction": "Canonical P must have at most one nonzero per row. This establishes disjoint support / orthogonality of D*P columns. Refuse general multi-master reductions; no silent fallback. s_k=max_j abs(D_j*P_jk).",
+  "local_equilibrium": "max_k abs((P.T*(K*u+C.T*lambda-F))_k)/(s_k*F_ref)",
+  "local_constraint": "max_i abs((C*u-g)_i)/(sum_j(abs(C_ij)/D_j)*U_ref_for_interface_i)",
+  "global_equilibrium": "A=diag(1/s)*P.T*K*diag(1/D), B=diag(1/s)*P.T*C.T, f=diag(1/s)*P.T*F; norm(diag(1/s)*P.T*residual,inf)/(norm(A,inf)*norm(ubar,inf)+norm(B,inf)*norm(lambda,inf)+norm(f,inf))",
+  "global_constraint": "norm(C*u-g,inf)/(norm(C*diag(1/D),inf)*norm(ubar,inf)+norm(g,inf))",
+  "zero_rule": "0/0=0; nonzero/0=infinity and failure. Nonfinite input or computed dimensional quantities are errors.",
+  "cases": {
+    "controlled_membrane": {
+      "identity": "test_solid_coupling.specimen: E=1000 Pa, nu=0, shell-solid-shell span=3 m, width=1 m, thickness=0.2 m, axial force=1 N",
+      "length_reference_m": 1.0,
+      "force_reference_N": 1.0,
+      "displacement_reference_m": 0.015,
+      "interface_displacement_references_m": [0.015, 0.015],
+      "reference_derivation": "U=F*span/(E*width*thickness), L=interface width",
+      "tip_displacement_relative_limit": 1e-10,
+      "tip_displacement_absolute_limit_m": 1e-12
+    },
+    "masking_counterexample": {"C": [[1,0],[0,1e-12]], "u": [1,1], "g": [1,0], "U_ref": 1, "required": "local second equation error=1; FAIL despite tiny global error"},
+    "mpc_counterexample": {"P": [[1,0],[0,1],[1e12,1e12]], "required": "REFUSE unqualified multi-master reduction before acceptance"}
+  },
+  "scope": "Discrete numerical postchecks only; production coupling remains NO_GO pending stability, locking, physical convergence and independent acceptance. References are prospective per case, never selected from observed residuals."
+}

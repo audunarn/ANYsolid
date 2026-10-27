@@ -1,0 +1,15 @@
+{
+  "status": "ACCEPTED_FINITE_CONNECTED_BEAM_PATCH",
+  "evidence": "evidence/w1/workflow1-connected-beam-repaired-a9a7736716",
+  "harness_sha256": "0b66f9c92d6dc52a3df38f2ceec3eeb839a1565db29f51d6d4c5983425c0ae71",
+  "process_wall_seconds": 2.2189999999973224,
+  "metric_cases_passed": 2,
+  "physical_cases_passed": 2,
+  "host_factorizations": 1,
+  "host_rhs": 2,
+  "cleanup_active_processes": 0,
+  "registration_consumed": true,
+  "review": "Independent non-author same-family source/result review accepted finite idealized joint patch",
+  "previous_failure": "FAILED_UNCHANGED; docs/connected_beam_disposition.json",
+  "scope_limit": "Not resolved continuum joint stress, engineering-distance or platform qualification"
+}

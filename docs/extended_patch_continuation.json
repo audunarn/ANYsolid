@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "state": "CONSUMED_COMPLETED",
+  "purpose": "Manual repair continuation of the same interrupted study; not a renewed numerical budget",
+  "original_manifest_sha256": "11203765e732ff36e64f879bdb778a14ef486649b552a8510a641194bff17e44",
+  "prefix_evidence": "evidence/w1/workflow1-extended-patches-030e6dbb32",
+  "preserved_prefix_cases": [
+    "q4_membrane_1_1",
+    "q4_membrane_1_2",
+    "q4_membrane_1_4"
+  ],
+  "remaining_cases": [
+    "q4_membrane_1_8",
+    "q4_membrane_2_1",
+    "q4_membrane_4_1",
+    "q4_membrane_8_1",
+    "q4_membrane_shifted_4_5",
+    "s3_bending_weak",
+    "mixed_bending_weak",
+    "two_replacements_four_transitions",
+    "s3_bending_strong_nodal_control",
+    "s3_width_bending_min3_term"
+  ],
+  "consumed_attempt_slots": 4,
+  "remaining_attempt_slots": 16,
+  "consumed_actual_solves": 3,
+  "remaining_process_seconds": 177,
+  "one_process_reconciliation": "Original one-process authority is consumed. Parent adopts exactly one separately reviewed manual repair/suffix process, preserves prefix/failure evidence and reduces remaining time/attempt capacity. No automatic retries or extra cases.",
+  "product_delta": {
+    "path": "C:/Github/ANYsolid/src/anysolid/coupling.py",
+    "old_sha256": "99abc4c4191e9f4ce402e8c49a57884138ca12a234bf1369e8f40341cc71e86c",
+    "new_sha256": "d649efbd40d1469750cf5bb80d7f9a2c7310550481b92ce2663779ff10d87f64"
+  },
+  "resume_harness_sha256": "ba33ffd0f043378f6e422771251d7fa616df83ae4f6caed1c8e87c7d782c5276",
+  "unchanged": "All case meshes, multiplier knots, material/load/reference/normalization/thresholds from the original frozen manifest; only isolated overlap guard may change.",
+  "approval_basis": "User explicitly authorizes remaining Workflow1 implementation, verification and blocker reporting; parent owns scientific/authority adjudication. Must complete independent repair and continuation preflight before readiness.",
+  "review_disposition": "Independent non-author review of exact SAT, final41-testreceipt and manual suffix wrapper found no remaining blocker; parent adopts exactlyone177second continuation within remaining cumulativebudget.",
+  "executed_amendment_sha256": "cb5a2c193ed4ee0c929590364e3d3e80514bafa9f131a4c2e0bd204548b6a843",
+  "execution_receipt": "evidence/w1/workflow1-extended-suffix-ca3b8a8e75/result.json",
+  "outcome": "Ten suffix cases passed; three original prefix passes retained;13actualsolves14attemptslots9.453processseconds. No rerun authority remains."
+}

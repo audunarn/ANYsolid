@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "purpose": "Bounded W1.3a physical and stability diagnostic; not production promotion",
+  "identity": "controlled specimen from ANYsolver/tests/test_solid_coupling.py; independent analytic nu=0 strip limits",
+  "material": {"E_Pa": 1000.0, "nu": 0.0, "density_for_verification_norm_only": 1.0},
+  "geometry": {"span_m": 3.0, "width_m": 1.0, "default_thickness_m": 0.2, "solid_x_interval_m": [0.0,1.0]},
+  "multiplier_partition_m": [0.0,1.0],
+  "membrane": {"force_N": 1.0, "tip_displacement_reference_m": 0.015, "energy_twice_reference_Nm": 0.015, "stress_reference_Pa": 5.0},
+  "pure_bending": {
+    "curvature_per_m": 0.001,
+    "moment_Nm": 0.0006666666666666668,
+    "exact_displacement": "u=(a*(x+1)*z,0,-a*(x+1)^2/2), reference shell z=0",
+    "exact_rotation": "theta_y=a*(x+1)",
+    "tip_w_reference_m": -0.0045,
+    "tip_theta_reference_rad": 0.003,
+    "energy_twice_reference_Nm": 0.0000020000000000000003,
+    "exact_stress": "sigma_xx=E*a*z, other components zero",
+    "stress_scale_Pa": 0.1,
+    "sampling": "solid quadrature points with 0.25<=x<=0.75",
+    "scales": {"length_m": 1.0, "force_N": 0.0006666666666666668, "displacement_m": 0.0045, "interface_displacements_m": [0.0045,0.0045]}
+  },
+  "thresholds": {"displacement_rotation_energy_relative": 0.01, "stress_scaled_max": 0.05, "residuals": 1e-9, "spectrum_asymmetry": 1e-10},
+  "stability_diagnostic": {
+    "characteristic_length_m": 1.0,
+    "native_mass_interpretation": "density-stripped geometric verification mass including Q4 rotary/drilling entries; not a dynamic capability or a purely through-thickness displacement L2 norm",
+    "spd_check": "bounded dense Cholesky of verification V, at most 1500 reduced coordinates; never a physical-solve fallback",
+    "cases_nshell_nsolid_thickness": [[1,1,0.2],[2,1,0.2],[4,1,0.2],[1,2,0.2],[1,4,0.2],[1,1,0.1],[1,1,0.05]],
+    "V_norm": "P.T*(K+(E/L^2)*M_density1)*P; norm only, never added to physical stiffness",
+    "Q_norm": "(L/E)*blockdiag(M_lambda_interfaces), M_lambda=kron(assembled_P1_line_mass*t,diag(1,1,1,1/3,1/3))",
+    "beta_squared": "eigenvalues of (C*P)*V^-1*(C*P).T relative to Q_norm",
+    "claim": "finite-case diagnostic spectra only; no inf-sup uniform bound or locking qualification inferred"
+  },
+  "bounds": {"maximum_primary_dofs": 4000, "maximum_multiplier_rows": 40, "maximum_spd_dense_dimension": 1500, "process_tree_timeout_seconds": 180, "partial_results_flushed": true},
+  "failure_policy": "retain failed case and do not loosen references or limits; stop promotion and report scientific uncertainty"
+}

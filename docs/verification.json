@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "prospective",
+  "material_envelope": {"E": "finite positive", "nu": [0.0, 0.45]},
+  "cases": {
+    "backend_patch": {"orders": [1, 2], "E": 1000.0, "nu": [0.0, 0.3, 0.45], "reference": "affine continuum displacement and isotropic 3D stress", "relative_error_limit": 1e-10},
+    "rigid_modes": {"reference": "three translations and three infinitesimal rotations per connected free solid", "normalized_force_limit": 1e-10},
+    "load_resultants": {"reference": "analytic volume and planar facet integrals", "relative_error_limit": 1e-10},
+    "coupling_algebra": {"reference": "physical rigid motions and same-operator transpose forces", "work_error_limit": 1e-10, "force_moment_limit": 1e-8},
+    "host_equilibrium": {"reference": "reconstructed constrained equilibrium including multiplier force", "backward_error_limit": 1e-9, "constraint_error_limit": 1e-9},
+    "nonmatching": {"mesh_ratios": [1, 2, 4, 8, 0.5, 0.25, 0.125], "shifts": [0.0, 0.25], "status": "requires frozen formulation and bounded stability manifest before promotion"},
+    "engineering_convergence": {"displacement_energy_target": 0.01, "nonsingular_stress_target": 0.05, "reference_requirement": "independently converged; exact specimen/sampling/stability thresholds registered before execution", "status": "not yet registered or run"},
+    "repeated_rhs": {"counts": [1, 10, 100, 1000], "equivalence_limit": 1e-10, "maximum_primary_dofs": 1000}
+  },
+  "normalization": "relative error uses reference norm; zero-reference cases use a documented physical E*volume or load/displacement scale, never the observed error",
+  "execution": {"small_test_process_timeout_seconds": 180, "qualification_requires_separate_case_identity": true, "preserve_failures": true},
+  "production_weak_coupling": "NO_GO pending formulation study and independent review"
+}

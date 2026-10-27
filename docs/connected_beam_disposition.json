@@ -1,0 +1,17 @@
+{
+  "status": "INCOMPLETE_EXECUTION_FAILURE",
+  "evidence": "evidence/w1/workflow1-connected-beam-d8b983a20d",
+  "process_wall_seconds": 2.125,
+  "exit_code": 1,
+  "cleanup_active_processes": 0,
+  "registration_consumed": true,
+  "metric_results": 2,
+  "metric_passes": 2,
+  "physical_results": 0,
+  "physical_acceptance": "NOT_RECOVERABLE_FROM_RETAINED_OUTPUT",
+  "failure": "Postsolve harness lookup native.mesh.materials: FEMesh has no materials attribute",
+  "correct_owner_api": "native.get_material(beam.material_name)",
+  "independent_review": "Non-author confirmed both certificates and numerical positive-energy assessment pass; no physical acceptance claim. Same family.",
+  "retry": "NOT_PERFORMED; one-attempt registration consumed",
+  "production": "NO_GO"
+}

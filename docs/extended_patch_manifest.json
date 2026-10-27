@@ -1,0 +1,1640 @@
+{
+  "schema": 1,
+  "state": "PREPARED_NOT_EXECUTED_REQUIRES_PARENT_SCIENTIFIC_AND_SOURCE_PREFLIGHT",
+  "purpose": "Bounded research physical patches after production-derived S3 trace extension; not W1.4 or uniform stability qualification",
+  "material": {
+    "E": 1000.0,
+    "nu": 0.0
+  },
+  "geometry": {
+    "thickness": 0.2,
+    "width": 1.0,
+    "reference_surface_z": 0.0,
+    "physical_offset": 0.0,
+    "solid_displacement_order": 2
+  },
+  "runtime": {
+    "skfem": "12.0.2",
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "reference_derivations": {
+    "area": 0.2,
+    "second_moment": 0.0006666666666666669,
+    "membrane": "F1; epsilon=F/(E*A)=.005; twiceenergy=F*epsilon*span; sigmaxx=F/A",
+    "x_bending": "a=.001; M=E*I*a; u=(a*(x+1)*z,0,-a*(x+1)^2/2); theta_y=a*(x+1); twiceenergy=E*I*a^2*span; sigma_xx=E*a*z",
+    "width_bending": "u=(0,a*(y-.5)*z,-a*(y-.5)^2/2); theta_x=-a*(y-.5); sigma_yy=E*a*z; other stresses zero; twiceenergy=E*I*a^2*span",
+    "width_bending_load_signs": "native y1 moment_x=-M per x-length, y0=+M; solid y1 traction_y=+E*a*z, y0=-E*a*z; no right-tip force/moment",
+    "width_bending_review": "prospective source/sign review required; nonzero exact left six-DOF prescription; it exercises nonzero MIN3 quadratic edge displacement"
+  },
+  "admission": "planar straight interfaces with free endpoints; no MPC, crosspoints, curved geometry or physical-offset cases; distinct native/solid intervals without double-counted shell",
+  "multiplier_policy": "frozen coarser DECLARED CORNER list by interval count, shell on ties; right-face reversed chart transformed explicitly; integration-cut union never selects multiplier space",
+  "load_policy": "constant physical line force/moment integrated per segment: each endpoint half segment length; interior vertex sum adjacent halves. Width bending includes all physical side loads and nonzero exact left support values; never K*u manufactured loading",
+  "reaction_work_policy": "only actual prescribed native support reactions plus ALL applied native and solid loads; moments about global origin. Work includes q_fixed dot supportreaction when prescribed values are nonzero",
+  "sampling": "ALL quadrature points in each region declared central-half x interval, all9 tensor components compared to exact physical tensor with declared nonzero stress scale; no post-hoc exclusions or smoothing",
+  "thresholds": {
+    "global_field_energy_relative": 0.01,
+    "stress_scaled_max": 0.05,
+    "registered_residual": 1e-09,
+    "work": 1e-10,
+    "resultant": 1e-08
+  },
+  "inventory": {
+    "solves": 13,
+    "weak_cases": 12,
+    "strong_nodal_diagnostic_cases": 1,
+    "planned_maximum_primary_dofs": 828,
+    "planned_maximum_multiplier_rows": 90,
+    "count_derivation": "native=6*2*(shellcornercount)*(native stripcount); P2 structured core=3*(2Nx+1)*(2Ny+1)*(2Nz+1); weak rows=5*cornerknots eachinterface; strong nodal rows=3*(2Ny+1)*(2Nz+1) eachface; actualcounts must match at execution"
+  },
+  "bounds": {
+    "maximum_solves": 20,
+    "maximum_primary_dofs": 4000,
+    "maximum_multiplier_rows": 100,
+    "process_tree_timeout_seconds": 180,
+    "one_process_only": true,
+    "partial_jsonl_flushed": true
+  },
+  "source_and_fixture_hashes": {
+    "C:/Github/ANYsolid/src/anysolid/backend.py": "8061c166a0dc39eb312b0d5edbc9739b750900d587fddc53722d33d249357781",
+    "C:/Github/ANYsolid/src/anysolid/mesh.py": "befc8f69d8e7daf9c20f5c9e51e7312273ebf4f950ea803e6f9503576a87e803",
+    "C:/Github/ANYsolid/src/anysolid/coupling.py": "99abc4c4191e9f4ce402e8c49a57884138ca12a234bf1369e8f40341cc71e86c",
+    "C:/Github/ANYsolid/tools/strong_diagnostic.py": "82378f814c5344af1a1cf3cf1a79ef7bb00ad2f135fa5aab1df4fe4819cfe396",
+    "C:/Github/ANYsolver/src/anysolver/solids.py": "d149308d42b00b68529f5c9b0cc45daf5d07164fd91c875aacdb0dce03f0ea22",
+    "C:/Github/ANYsolver/src/anysolver/solid_trace.py": "f7e2e64f85ceb2442511b50d4e005cf2d98ad0b9ee6ca6e76a62c5ec7ed0b164",
+    "C:/Github/ANYsolver/src/anysolver/solid_residuals.py": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_element.py": "a1f7ce7e66be66ba6e9cceb80be27d5d7eeec38b01ad93673c264a4e008b00f4",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_s3_v2d_element.py": "3c736abe17f5c5d9c0f74a4836a7253518833e67fa13a7999cba64c6dc97f6fd",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_s3_v2c_element.py": "39cb171aa31f432eb937af972b30d709b5a51bfd5a977b51ac459b52b61aa8d8",
+    "C:/Github/ANYsolver/src/anysolver/elements.py": "55515cdf1dda318e54525e3511e992f12eb8ba013eadafc2c0bdd810796d86b7",
+    "C:/Github/ANYsolver/src/anysolver/assembly.py": "588a2d576efb9a147c7d198b3e70b428889c2479947aeadd976a81b217b55c97",
+    "C:/Github/ANYsolver/src/anysolver/matrix_assembly.py": "0af529ca28bd44e9c59975420f01ca662fab9fdf3119814a887443288434775b",
+    "C:/Github/ANYsolver/src/anysolver/fe_core.py": "2377a0b492113a6ac80b009cebc9849c83867f7ac367f0a7d5d15d6c26153c0a",
+    "C:/Github/ANYsolver/tests/test_solid_coupling.py": "242a828fe82fefc73083d379acbdbe641e175bf3551dff0fa8ed8e5bc6e6432f",
+    "C:/Github/ANYsolver/tests/test_solid_trace_extensions.py": "487d36ac9c417e21497c4f2c4993ae17c6b1566a8cb055b0ec6c7deff067df61"
+  },
+  "cases": [
+    {
+      "id": "q4_membrane_1_1",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "q4_membrane_1_2",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 225,
+      "planned_primary_dofs": 273,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "q4_membrane_1_4",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 405,
+      "planned_primary_dofs": 453,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "q4_membrane_1_8",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.125,
+            0.25,
+            0.375,
+            0.5,
+            0.625,
+            0.75,
+            0.875,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 765,
+      "planned_primary_dofs": 813,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "q4_membrane_2_1",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 72,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 207,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    },
+    {
+      "id": "q4_membrane_4_1",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 120,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 255,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.125,
+        0.25,
+        0.25,
+        0.25,
+        0.125
+      ]
+    },
+    {
+      "id": "q4_membrane_8_1",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.125,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "solid",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 216,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 351,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.0625,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.0625
+      ]
+    },
+    {
+      "id": "q4_membrane_shifted_4_5",
+      "profile": "membrane",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.2,
+        0.45,
+        0.7,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "Q4",
+        "Q4",
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.1,
+            0.3,
+            0.55,
+            0.8,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.2,
+            0.45,
+            0.7,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.2,
+            0.45,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.2,
+            0.45,
+            0.7,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.30000000000000004,
+            0.55,
+            0.8,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "epsilon": 0.005,
+        "applied_force": 1.0,
+        "applied_moment": 0.0,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 1.0,
+        "displacement_ref": 0.015,
+        "interface_displacement_refs": [
+          0.015,
+          0.015
+        ],
+        "displacement_check_scale": 0.015,
+        "rotation_check_scale": 0.015,
+        "twice_energy": 0.015,
+        "stress_scale": 5.0,
+        "tip_reference": "u_x=.005*(x+1)",
+        "energy_work_ref": 0.015,
+        "virtual_work_ref": 0.015,
+        "moment_balance_ref": 1.0
+      },
+      "planned_native_dofs": 120,
+      "planned_solid_dofs": 495,
+      "planned_primary_dofs": 615,
+      "planned_multiplier_rows": 50,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.1,
+        0.225,
+        0.24999999999999997,
+        0.275,
+        0.15000000000000002
+      ]
+    },
+    {
+      "id": "s3_bending_weak",
+      "profile": "bending",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "S3"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "curvature": 0.001,
+        "applied_force": 0.0,
+        "applied_moment": 0.0006666666666666669,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666669,
+        "displacement_ref": 0.0045000000000000005,
+        "interface_displacement_refs": [
+          0.0045000000000000005,
+          0.0045000000000000005
+        ],
+        "displacement_check_scale": 0.0045000000000000005,
+        "rotation_check_scale": 0.003,
+        "twice_energy": 2.0000000000000008e-06,
+        "stress_scale": 0.1,
+        "tip_reference": "w=-a*(x+1)^2/2; theta_y=a*(x+1)",
+        "energy_work_ref": 2.0000000000000008e-06,
+        "virtual_work_ref": 3.0000000000000013e-06,
+        "moment_balance_ref": 0.0006666666666666669
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 20,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "mixed_bending_weak",
+      "profile": "bending",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "S3"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "curvature": 0.001,
+        "applied_force": 0.0,
+        "applied_moment": 0.0006666666666666669,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666669,
+        "displacement_ref": 0.0045000000000000005,
+        "interface_displacement_refs": [
+          0.0045000000000000005,
+          0.0045000000000000005
+        ],
+        "displacement_check_scale": 0.0045000000000000005,
+        "rotation_check_scale": 0.003,
+        "twice_energy": 2.0000000000000008e-06,
+        "stress_scale": 0.1,
+        "tip_reference": "w=-a*(x+1)^2/2; theta_y=a*(x+1)",
+        "energy_work_ref": 2.0000000000000008e-06,
+        "virtual_work_ref": 3.0000000000000013e-06,
+        "moment_balance_ref": 0.0006666666666666669
+      },
+      "planned_native_dofs": 72,
+      "planned_solid_dofs": 405,
+      "planned_primary_dofs": 477,
+      "planned_multiplier_rows": 30,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    },
+    {
+      "id": "two_replacements_four_transitions",
+      "profile": "bending",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "shell_cell_types": [
+        "Q4",
+        "Q4"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          4.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        },
+        {
+          "name": "solid2",
+          "x_corners": [
+            2.0,
+            3.0
+          ],
+          "y_corners": [
+            0.0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            2.25,
+            2.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "region": "solid2",
+          "native_strip": 1,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "region": "solid2",
+          "native_strip": 2,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "curvature": 0.001,
+        "applied_force": 0.0,
+        "applied_moment": 0.0006666666666666669,
+        "span": 5.0,
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666669,
+        "displacement_ref": 0.0125,
+        "interface_displacement_refs": [
+          0.0125,
+          0.0125,
+          0.0125,
+          0.0125
+        ],
+        "displacement_check_scale": 0.0125,
+        "rotation_check_scale": 0.005,
+        "twice_energy": 3.3333333333333346e-06,
+        "stress_scale": 0.1,
+        "tip_reference": "w=-a*(x+1)^2/2; theta_y=a*(x+1)",
+        "energy_work_ref": 3.3333333333333346e-06,
+        "virtual_work_ref": 8.333333333333335e-06,
+        "moment_balance_ref": 0.0006666666666666669
+      },
+      "planned_native_dofs": 108,
+      "planned_solid_dofs": 720,
+      "planned_primary_dofs": 828,
+      "planned_multiplier_rows": 60,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    },
+    {
+      "id": "s3_bending_strong_nodal_control",
+      "profile": "bending",
+      "formulation": "strong_point_diagnostic_v1",
+      "shell_corners": [
+        0.0,
+        1.0
+      ],
+      "shell_cell_types": [
+        "S3"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "curvature": 0.001,
+        "applied_force": 0.0,
+        "applied_moment": 0.0006666666666666669,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666669,
+        "displacement_ref": 0.0045000000000000005,
+        "interface_displacement_refs": [
+          0.0045000000000000005,
+          0.0045000000000000005
+        ],
+        "displacement_check_scale": 0.0045000000000000005,
+        "rotation_check_scale": 0.003,
+        "twice_energy": 2.0000000000000008e-06,
+        "stress_scale": 0.1,
+        "tip_reference": "w=-a*(x+1)^2/2; theta_y=a*(x+1)",
+        "energy_work_ref": 2.0000000000000008e-06,
+        "virtual_work_ref": 3.0000000000000013e-06,
+        "moment_balance_ref": 0.0006666666666666669
+      },
+      "planned_native_dofs": 48,
+      "planned_solid_dofs": 135,
+      "planned_primary_dofs": 183,
+      "planned_multiplier_rows": 90,
+      "diagnostic_only": true,
+      "strong_protocol": {
+        "research_coupling": true,
+        "add_interface_keyword": {
+          "diagnostic_strong_tying": true
+        },
+        "point_selection": "ALL unique boundary_dofs coefficient coordinates on verified P2 backend; nodal point forces only; complete continuity only for compatible polynomial partitions"
+      },
+      "native_right_line_weights": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "s3_width_bending_min3_term",
+      "profile": "width_bending",
+      "formulation": "weak_section_moments_v1",
+      "shell_corners": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "shell_cell_types": [
+        "S3",
+        "S3"
+      ],
+      "native_intervals": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ]
+      ],
+      "regions": [
+        {
+          "name": "solid1",
+          "x_corners": [
+            0.0,
+            1.0
+          ],
+          "y_corners": [
+            0.0,
+            0.3333333333333333,
+            0.6666666666666666,
+            1.0
+          ],
+          "z_corners": [
+            -0.1,
+            0.0,
+            0.1
+          ],
+          "stress_roi_x": [
+            0.25,
+            0.75
+          ]
+        }
+      ],
+      "interfaces": [
+        {
+          "region": "solid1",
+          "native_strip": 0,
+          "native_side": "right",
+          "solid_group": "x0",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "region": "solid1",
+          "native_strip": 1,
+          "native_side": "left",
+          "solid_group": "x1",
+          "coarser_declared_corner_source": "shell",
+          "coarser_global_y_corners": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "multiplier_chart_knots": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "references": {
+        "curvature": 0.001,
+        "applied_force": 0.0,
+        "applied_moment": 0.0006666666666666669,
+        "span": 3.0,
+        "length_ref": 1.0,
+        "force_ref": 0.0006666666666666669,
+        "displacement_ref": 0.0005,
+        "interface_displacement_refs": [
+          0.0005,
+          0.0005
+        ],
+        "displacement_check_scale": 0.000125,
+        "rotation_check_scale": 0.0005,
+        "twice_energy": 2.0000000000000008e-06,
+        "stress_scale": 0.1,
+        "tip_reference": "w=-a*(y-.5)^2/2; theta_x=-a*(y-.5)",
+        "energy_work_ref": 2.0000000000000008e-06,
+        "virtual_work_ref": 3.3333333333333346e-07,
+        "moment_balance_ref": 0.0006666666666666669
+      },
+      "planned_native_dofs": 72,
+      "planned_solid_dofs": 315,
+      "planned_primary_dofs": 387,
+      "planned_multiplier_rows": 30,
+      "diagnostic_only": false,
+      "strong_protocol": null,
+      "native_right_line_weights": [
+        0.25,
+        0.5,
+        0.25
+      ]
+    }
+  ],
+  "terminal_behavior": "no execution before parent preflight; no automatic retry, mesh or multiplier refinement. Unexpected source/assembly/rank/factorization/serialization exception stops remaining cases and preserves prefix. Accuracy failures remain explicit and never retune subsequent registered cases",
+  "promotion": "All weak cases research_only; strong case diagnostic_only_strong_tying. No uniform inf-sup, locking, general engineering qualification or production promotion. Historical NO_GO evidence remains failed.",
+  "harness_path": "C:/Github/ANYsolid/tools/extended_patch_study.py",
+  "harness_sha256": "26f8622e2aafd2a5c3c45d242f19398b1a64063a7e1d4d0b6910112055038ee3"
+}

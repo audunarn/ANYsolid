@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "authorization": "2026-10-27 Proceed continuation; new discriminating design after completed four-control study, not renewal or rerun of that consumed authority",
+  "question": "After reducing the identified axial discretization error, how do matched solid-only controls and unchanged coupled solves compare?",
+  "basis": "Original solid-only shear75.24% reproduces coupled72.19%; axial-only Nx8 improves to20.21%, width/thickness-only changes do not improve. No product kernel change is justified by those data.",
+  "reference_harness": "../tools/transverse_shear_comparison.py",
+  "reference_harness_sha256": "475940b3ae0273395e87195698ef10d09c493181aeedd40d47005c7e28089965",
+  "reference_manifest": "transverse_shear_comparison_manifest.json",
+  "reference_manifest_sha256": "5391fddc78317075bc6f705b4754cbe3fd880418d6fc871394a68363fe0c5163",
+  "isolation_harness": "../tools/shear_isolation.py",
+  "isolation_harness_sha256": "e6449e634bd1788c9e9767d0e74c27d13cac186945aa6bed407b30fa10485367",
+  "isolation_manifest": "shear_isolation_manifest.json",
+  "prior_control_evidence": "../evidence/w1/shear-isolation-c9e5b50eda",
+  "levels": [
+    {"id": "axial16", "native_axial_elements_per_side": 4, "solid_nx": 16, "solid_ny": 1, "solid_nz": 8},
+    {"id": "axial32", "native_axial_elements_per_side": 4, "solid_nx": 32, "solid_ny": 1, "solid_nz": 8}
+  ],
+  "pairing": "Construct native/solid/weak operators once per level using retained specimen builder with an explicitly logged derived configuration. Use the SAME immutable prepared solid for its analytic-boundary control and coupled solve; quadrature coordinates must match exactly.",
+  "unchanged": "E1000,nu0,Q.001,t.2,span3,width1,solid x0..1,native axial4 per side,5 section modes,explicit multiplier partition[0,1],all support/load/reference/ROI definitions from retained manifests",
+  "derived_configuration_changes": "Only the two new axial solid counts and prospective dimension bound; do not modify original manifests or source functions. Log the complete derived configuration and source identities before solves.",
+  "routes": {
+    "control": "Analytic end displacements on x0/x1 including all P2 nodes/warping, no bodyforce and free lateral faces; all-solid registered_v2 references L1,F.001,U.013536 with no interface tuple",
+    "coupled": "Retained native clamp/right end-force and weak connector unchanged; registered_v2 same L/F/U and two identical interface displacement references"
+  },
+  "sampling": "All identical quadrature samples with0.25<=x<=0.75; no smoothing or exclusion",
+  "fixed_accuracy": {"axial_stress_scale_Pa": 0.3, "shear_stress_scale_Pa": 0.0075, "stress_scaled_max": 0.05, "coupled_tip_rotation_energy_relative_max": 0.01, "registered_residuals_max": 1e-9},
+  "paired_diagnostics": "At identical samples record coupled-minus-control stress, scaled xx and xz/zx maxima, and their own controlling coordinates. Retain each route's separate analytic reference errors; never infer the difference from maxima at different points.",
+  "claims": "Two paired finite cases only, not a rate or uniform stability proof. Accurate control with inaccurate coupled response implicates boundary/transition/native differences collectively, not uniquely the connector. Fixed native4 remains a limitation. Original failed evidence stays failed; no automatic production promotion even if new meshes meet targets.",
+  "bounds": {"maximum_solves": 4, "maximum_primary_dofs": 12000, "maximum_multiplier_rows": 40, "process_tree_timeout_seconds": 180, "partial_jsonl_flushed": true, "no_extra_mesh_or_numerical_retry": true},
+  "resource_rationale": "Only axial resolution changes after measured sensitivity; fixed thin cross-section and20 multipliers. Sparse FE factorizations, no dense global nullspace or dense global eigensolve. Report dimensions, matrix storage and exact process wall; make no RSS/speedup claim."
+}
