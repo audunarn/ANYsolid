@@ -1,0 +1,18 @@
+{
+  "status": "ACCEPTED_EXACT_RETAINED_WORK_EVALUATION",
+  "evidence": "evidence/w1/exact-retained-work-367854920d",
+  "case": "two_replacements_four_transitions",
+  "process_wall_seconds": 0.4220000000059372,
+  "exit_code": 0,
+  "cleanup_active_processes": 0,
+  "registration_consumed": true,
+  "exact_contractions": 1,
+  "fresh_FE_solves": 0,
+  "normalized_work_error_display": 2.3266364125382088e-11,
+  "unchanged_work_limit": 1e-10,
+  "comparison": "Exact rational comparison, using all saved binary64 values and the original twice-energy normalizer",
+  "original_double_evaluation": "FAILED_UNCHANGED",
+  "broader_combined_scope": "Three enumerated broader finite cases accepted using original unaffected checks and this separate exact work evaluation only",
+  "independent_review": "Non-author reviewed source, ordering, all33 source/input hashes and exact result; same model family",
+  "production": "NO_GO_PENDING_REMAINING_WORKFLOW_GATES"
+}

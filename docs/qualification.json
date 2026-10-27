@@ -1,0 +1,390 @@
+{
+  "schema": 2,
+  "workflow": "Workflow 1",
+  "overall": "PARTIAL_IMPLEMENTATION",
+  "production_weak_coupling": "NO_GO",
+  "numerical_environment": {
+    "python": "3.11",
+    "os": "Windows x64",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "scikit_fem": "12.0.2"
+  },
+  "capabilities": {
+    "tet4_geometry_p1_p2_backend": "77 scoped backend tests passed; engineering envelope not qualified",
+    "host_solid_static": "development integration and controlled multiple RHS passed",
+    "native_affine_mpc_external_blocks": "controlled case passed",
+    "planar_q4_weak_algebra": "scoped rigid/work/resultant/refusal tests passed",
+    "registered_residual_policy": "USER_APPROVED; 66 helper tests and 148 affected integration/native regressions passed; local plus normwise1e-9 checks, restricted disjoint-support reductions",
+    "coupled_membrane": "PASSED registered v2 through direct/single/multiple entries; legacy failure retained as diagnostics/evidence",
+    "coupled_bending": "PASSED registered analytical Q4/solid specimen",
+    "poisson_membrane_inplane_shear_twist": "3 proper physical patches passed fixed field/energy/stress/residual targets",
+    "strong_connector": "Research-only all-boundary-nodal collocation control passed matchedS3bending; both research+diagnostic flags required; mixedweak/strong row units refused; notproductiontying",
+    "inf_sup_locking": "Candidate B:18 fresh verified finite KKT certificates pass unchanged1e6 physical/5e6 dual bounds;12fresh physical results pass registered requirements. Candidate A remainsFAILED. No universal/productionclaim.",
+    "engineering_convergence": "Historical coarse campaign failed; new matched control/coupled Nx16 and Nx32 cases meet unchanged targets. Finite cases only; general convergence/stability remains unqualified",
+    "shear_failure_isolation": "4 solid-only controls completed, all residuals passed; original control75.24% reproduces large error without connector, axial-only8 improves20.21%, width/thickness alone do not improve",
+    "paired_axial_shear": "4 solves in2 matched pairs; control/coupled targets passed without product-code, reference, ROI or tolerance changes; old failures preserved",
+    "constant_transverse_patch": "NOT_EXECUTED_CONSTITUTIVE_MISMATCH; native shear correction5/6 accounted in separate engineering comparison",
+    "s3_mixed_chains": "Production-derived small-linear S3/mixed trace implemented; 38 extension tests and 58 existing regressions passed. Non-author source review found no trace defect; coupled physical/stability qualification pending",
+    "coupled_multiple_regions": "Two-region/four-transition bending patch passed; broader qualifiedcoverage remains gated",
+    "repeated_rhs": "All-solid1275DOF andcoupled828primary60multiplier/tworegionfourinterface measurements passed1/10/100/1000RHS withonehostfactorization each andcompleteperRHStensorrecovery. Independent evidence review supports scopedrank2/rank3equivalence, no speedupclaim; condensationdisabled.",
+    "condensation": "DISABLED_NOT_IMPLEMENTED",
+    "installed_anysolid_wheel": "PASSED isolated smoke",
+    "installed_anysolver_wheel": "Isolated baseline-plus-owned-overlay WindowsCPython3.11 wheel passed build/license/all-solid andS3 smoke plusinstalledexamples; no fullclean-checkout/platformCI",
+    "host_license_and_artifact": "PASSED existing compliance check including final wheel",
+    "full_ci_clean_checkout": "NOT_EXECUTED; localowner8cellsnapshotacceptance is narrower",
+    "multiplier_refinement_rule": "Explicit public coarsened P1 policy implemented/tested: everysecondcorner of coarser geometric partition,tieshell,bothinputspacingratio<=2. Oddfinaloutputratio<=4 documented. Bfiniteaccepted; widerenvelopeunqualified.",
+    "finite_extended_physical_patches": "13registered cases passed: Q4ratio1:1/2/4/8 and reversed, shiftedpartition, S3/mixedbending, tworegions/fourtransitions, S3widthbending and strongnodalcontrol. Independent non-author numerical evidence review supports finitecases only; stability/generalconvergence/physicaloffset stillopen",
+    "physical_offsets": "Four signedreference-plane membrane/bending fixtures (e=+/-.05) passed with correctgeneralizedsectionABD/tracearm; independentreview supports narrowstaticfixtures, notgeneral eccentricgeometry; nativeN/Mrecovery notmeasured",
+    "finite_stability_design": "Actual scaled KKT inverse certificates evaluated and independently accepted for18enumerated CandidateB matrices; six unchanged independent full-solid references authenticated/reused.",
+    "full_solid_references": "6independent P2 whole-body widthbending solves/two meshes at eacht .2/.1/.05 passed analytical/coefficient/stress/energy/commonpoint-refinement checks; limitedreferencefamily",
+    "q4_width_refinement": "12matchingcaseswithcoarseaccuracyfailuresretained;3finestN16physicaltargets passed withwhole-core displacementerror~.260417%, noenergy/stress uncertaintycertificate",
+    "retained_whole_core_field_audit": "17priorphysicalcases/18regions independently postprocessed from retainedcoefficients; alloriginal1%fieldtargets pass, maxnormalized5.678e-11; no newassembly/solve",
+    "candidate_B_broader_physics": "Three finite certificates pass; mixed and S3width physical checks pass directly, two-region physical scope accepted with independent exact retained work evaluation2.3266364125e-11<=same1e-10; original double work failure preserved.",
+    "owner_platform_matrix": "8localsnapshotcellsPASS:Windows311\u2013314194testseach;Ubuntu24.04/Linux311\u2013314195each; allsdist/wheel/installedP2/pipchecks andcleanupPASS. Laterhelperchanges19focusedWin+19Linux,currentfullprofile331."
+  },
+  "review": {
+    "independent_non_author_source_review": true,
+    "different_family_review": false,
+    "numerical_independent_acceptance": "Independent non-author same-family review accepted finiteCandidateB/broader/beam scopes and confirmed transition-referenceNO_GO. Parent audited8ownerplatformcells and current331-test profile. Overallcoupledproduction/releaseNOTaccepted; nohuman/different-familyclaim."
+  },
+  "scientific_no_go": {
+    "historical_case_preserved": true,
+    "case": "transverse_shear_comparison",
+    "finest_primary_dofs": 1497,
+    "displacement_relative_error": 0.00126579,
+    "rotation_relative_error": 2.738e-06,
+    "energy_relative_error": 0.00126551,
+    "axial_stress_scaled_error": 0.0176334,
+    "shear_stress_scaled_error": 0.7219325526,
+    "shear_limit": 0.05,
+    "execution_failures": 0,
+    "independent_review": "Original failure valid; later paired meshes identify major axial discretization sensitivity and meet their own registered targets"
+  },
+  "paired_cases": [
+    {
+      "id": "axial16",
+      "primary_dofs": 5169,
+      "control_shear_error": 0.04396026571627659,
+      "coupled_shear_error": 0.04564949512732552,
+      "pointwise_shear_difference": 0.009337180655969817,
+      "registered_targets_met": true
+    },
+    {
+      "id": "axial32",
+      "primary_dofs": 10065,
+      "control_shear_error": 0.013604474686585283,
+      "coupled_shear_error": 0.014125388531746087,
+      "pointwise_shear_difference": 0.001779078039517342,
+      "registered_targets_met": true
+    }
+  ],
+  "production_no_go_reason": "Transition-distance reference displacement discrepancy.0029565802 exceeds unchanged.001 convergence gate; no coupled cases executed. Required native NLG007 verification remainsFAIL underunchangedwarpedplasticguard; fullhost andcleancheckout/release gates are notpassed. Beamfinitepatch and8ownerplatformsnapshotsaccepted. No limits orfailedrecords altered.",
+  "evidence_index": "../evidence/w1/summary.json",
+  "handoff": "WORKFLOW_1_HANDOFF.md",
+  "publication": "NOT_AUTHORIZED_NOT_PERFORMED",
+  "qualification_status": "BLOCKED_REFERENCE_CONVERGENCE_AND_HOST_RELEASE_GATES",
+  "finite_stability_no_go": {
+    "case": "matching_s16_v16_t0p05",
+    "modal_amplification_upper": 5645155.4093091665,
+    "modal_amplification_limit": 5000000,
+    "registered_residual_uncertainty": 1e-09,
+    "modal_uncertainty_upper": 0.005645155409309166,
+    "modal_uncertainty_allocation": 0.005,
+    "execution_failures": 0,
+    "metrics": 18,
+    "physical_cases": 12,
+    "references": 6,
+    "evidence": "../evidence/w1/workflow1-finite-stability-dd745908f7",
+    "consumed": true
+  },
+  "revised_multiplier": {
+    "status": "PASSED_FINITE_CANDIDATE_B",
+    "scope": "18registeredoperators12physicalcases6validatedreusedreferences only; notuniversalorproductionqualification",
+    "evidence": "evidence/w1/workflow1-revised-multiplier-b1dde87f2a",
+    "old_A": "FAILED_UNCHANGED",
+    "independent_review": "same-family non-author confirmed allgates and source/runtime/counts;28.031seconds cleanup0",
+    "maximum_dual_amplification": 1257436.621308579,
+    "dual_limit": 5000000.0,
+    "maximum_physical_output_amplification": 16014.523018231786,
+    "physical_output_limit": 1000000.0,
+    "new_registration_consumed": true
+  },
+  "development_current": {
+    "command": ".venv/Scripts/python.exe tools/dev_checks.py full --timeout 180",
+    "tests": 331,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "process_wall_seconds": 43.36436149998917,
+    "evidence": "../evidence/development/20261027T125640Z-901c9157"
+  },
+  "connected_beam": {
+    "status": "INCOMPLETE_EXECUTION_FAILURE",
+    "evidence": "../evidence/w1/workflow1-connected-beam-d8b983a20d",
+    "process_wall_seconds": 2.125,
+    "metrics_passed": 2,
+    "physical_results": 0,
+    "registration_consumed": true,
+    "failure": "Postsolve harness material lookup used FEMesh.materials rather than native.get_material(beam.material_name). Physical acceptance cannot be recovered; no retry."
+  },
+  "revised_broader": {
+    "status": "SCIENTIFIC_NO_GO_REGISTERED_DOUBLE_EVALUATION",
+    "evidence": "evidence/w1/revised-broader-physics-016d398003",
+    "process_wall_seconds": 3.437000000005355,
+    "exit_code": 1,
+    "execution_failures": 0,
+    "cleanup_active_processes": 0,
+    "registration_consumed": true,
+    "metric_results": 3,
+    "metric_passes": 3,
+    "physical_results": 3,
+    "physical_all_gates_passed": 2,
+    "failed_case": "two_replacements_four_transitions",
+    "failed_gate": "energy_external_support_work",
+    "normalized_work_error": 1.0614817842248283e-10,
+    "unchanged_work_limit": 1e-10,
+    "twice_energy": 3.3333333338025692e-06,
+    "external_work": 3.333333333448742e-06,
+    "support_work": 0.0,
+    "passed_cases": [
+      "mixed_bending_weak",
+      "s3_width_bending_min3_term"
+    ],
+    "withheld_case": "q4_membrane_shifted_4_5: input spacing ratio2.5 exceeds unchanged policy limit2",
+    "production": "NO_GO",
+    "retry": "NOT_PERFORMED; one-attempt registration consumed",
+    "independent_review": "Non-author verified original2PASS/1FAIL, allsourceIDs/counts,0executionerrors. Exact retained arithmetic diagnostic indicates contraction cancellation; distinct correction audit pending, no failedrecordreplacement.",
+    "separate_exact_evaluation": "ACCEPTED; see exact_retained_work_disposition.json; original status and terminal remain FAILED",
+    "combined_finite_scope": "Three finite cases supported by original unaffected checks plus separate exact retained work evaluation. Not production."
+  },
+  "exact_retained_work": {
+    "status": "ACCEPTED_EXACT_RETAINED_WORK_EVALUATION",
+    "evidence": "evidence/w1/exact-retained-work-367854920d",
+    "case": "two_replacements_four_transitions",
+    "process_wall_seconds": 0.4220000000059372,
+    "exit_code": 0,
+    "cleanup_active_processes": 0,
+    "registration_consumed": true,
+    "exact_contractions": 1,
+    "fresh_FE_solves": 0,
+    "normalized_work_error_display": 2.3266364125382088e-11,
+    "unchanged_work_limit": 1e-10,
+    "comparison": "Exact rational comparison, using all saved binary64 values and the original twice-energy normalizer",
+    "original_double_evaluation": "FAILED_UNCHANGED",
+    "broader_combined_scope": "Three enumerated broader finite cases accepted using original unaffected checks and this separate exact work evaluation only",
+    "independent_review": "Non-author reviewed source, ordering, all33 source/input hashes and exact result; same model family",
+    "production": "NO_GO_PENDING_REMAINING_WORKFLOW_GATES"
+  },
+  "connected_beam_repaired": {
+    "status": "ACCEPTED_FINITE_CONNECTED_BEAM_PATCH",
+    "evidence": "evidence/w1/workflow1-connected-beam-repaired-a9a7736716",
+    "harness_sha256": "0b66f9c92d6dc52a3df38f2ceec3eeb839a1565db29f51d6d4c5983425c0ae71",
+    "process_wall_seconds": 2.2189999999973224,
+    "metric_cases_passed": 2,
+    "physical_cases_passed": 2,
+    "host_factorizations": 1,
+    "host_rhs": 2,
+    "cleanup_active_processes": 0,
+    "registration_consumed": true,
+    "review": "Independent non-author same-family source/result review accepted finite idealized joint patch",
+    "previous_failure": "FAILED_UNCHANGED; docs/connected_beam_disposition.json",
+    "scope_limit": "Not resolved continuum joint stress, engineering-distance or platform qualification"
+  },
+  "current_installed_adapter": {
+    "wheel": "C:\\Github\\ANYsolid\\evidence\\w1\\platform-artifact-refresh-20261027\\dist\\anysolid-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "601bd500625e6cd95f3a741f4f19b87bdcb4a72a7c7650278fea8be3efc56c3c",
+    "runtime": "WindowsCPython3.11 purePython noNumba",
+    "installed_adapter_sources_equal_current": true,
+    "installed_checks_passed": 5,
+    "evidence": "evidence/w1/current-adapter-installed-consumers-147377a8c9",
+    "process_wall_seconds": 8.031000000002678,
+    "host": "Existing isolated baseline+ownedoverlay installed ANYsolver0.4.7; hostsource unchanged, no newhostwheelbuildclaim",
+    "failed_target_install_preserved": "evidence/w1/current-adapter-artifact-target-61024a8ed6",
+    "scope": "Local installed consumers only, not cross-platform/clean-checkout qualification"
+  },
+  "transition_distance": {
+    "status": "SCIENTIFIC_NO_GO_REFERENCE_CONVERGENCE",
+    "evidence": "evidence/w1/transition-distance-6b4550d018",
+    "process_wall_seconds": 60.062000000005355,
+    "execution_failures": 0,
+    "reference_solves": 2,
+    "reference_individual_checks_passed": 2,
+    "reference_field_difference": 0.0029565802212485667,
+    "unchanged_reference_field_limit": 0.001,
+    "reference_energy_difference": 0.00043391547994759577,
+    "unchanged_reference_energy_limit": 0.001,
+    "reference_stress_difference": 0.0010265422643632193,
+    "unchanged_reference_stress_limit": 0.005,
+    "coupled_solves": 0,
+    "inverse_assessments": 0,
+    "registration_consumed": true,
+    "cleanup_active_processes": 0,
+    "review": "Independent non-author same-family source/runtime/result review confirmed reference gate failure and correct coupled refusal",
+    "controlling_saved_coefficient": {
+      "coordinates": [
+        2,
+        0.6875,
+        0.1
+      ],
+      "component": "uy",
+      "coarse": 0.0007670615335005832,
+      "fine": 0.0008114102368193117
+    },
+    "next_scope": "No third reference or rerun authorized by consumed registration. Prospective repair proposal only; all original samples and limits retained.",
+    "production": "NO_GO"
+  },
+  "adapter_owner_platforms": {
+    "status": "ACCEPTED_EIGHT_OWNER_PLATFORM_SNAPSHOT_CELLS",
+    "stage": "evidence\\w1\\adapter-platform-20261027T124413Z-f423d33f",
+    "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e",
+    "complete": true,
+    "test_budget_seconds": 1200,
+    "current_production_and_build_input_hashes_equal": true,
+    "cells": {
+      "windows311": {
+        "status": "passed",
+        "counts": {
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+      },
+      "windows312": {
+        "status": "passed",
+        "counts": {
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+      },
+      "windows313": {
+        "status": "passed",
+        "counts": {
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+      },
+      "windows314": {
+        "status": "passed",
+        "counts": {
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "a28699406e32a5b512a06483a48836afedb6160636fbebbb63d352ec2943b23f"
+      },
+      "linux311": {
+        "status": "passed",
+        "counts": {
+          "tests": 195,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+      },
+      "linux312": {
+        "status": "passed",
+        "counts": {
+          "tests": 195,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+      },
+      "linux313": {
+        "status": "passed",
+        "counts": {
+          "tests": 195,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+      },
+      "linux314": {
+        "status": "passed",
+        "counts": {
+          "tests": 195,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "cleanup_verified": true,
+        "manifest_sha256": "46245bd2bb12790c71dabc92b7d710026972a719f883f2aaf3018a5ac8bde55e"
+      }
+    },
+    "lineage": "Windows194testsnapshotresultsimported; freshLinuxsnapshotaddsonefocusedtemporaryworkspaceunit; production/buildinputsidentical.",
+    "scope": "Local Windows and Ubuntu24.04 owner snapshots, not clean-checkout/remoteCI/ANYsolverfullCI/coupling qualification",
+    "later_tooling_validation": {
+      "windows_focused_passes": 19,
+      "linux_focused_passes": 19,
+      "current_full_profile_tests": 331,
+      "current_full_profile_failures": 0,
+      "evidence": "evidence/development/20261027T125640Z-901c9157"
+    },
+    "review": "Parent independently inspected all8phase receipts/counts/origins and unchanged currentproduction/buildinputs; toolingpostfix testedseparately, no fresh8cellclaimforlaternonproducthelperbytes",
+    "matrix_ledger_seconds": 77.91469707399348,
+    "total_owned_test_seconds_including_later_focused_checks": 88.43966170901281,
+    "final_report": "evidence/w1/adapter-platform-20261027T124413Z-f423d33f/final-report.json"
+  },
+  "host_verification": {
+    "status": "HOST_REQUIRED_VERIFICATION_CASE_FAILED_NO_GO",
+    "full_inventory_passed": false,
+    "original_full_attempt": "evidence/w1/platform-local-portable-2da6ea1ac8",
+    "repaired_full_attempt": "evidence/w1/platform-local-repair-e05c24d29d/full",
+    "repaired_full_known_counts": {
+      "passed": 350,
+      "failed": 2,
+      "skipped": 10,
+      "deselected": 19
+    },
+    "policy_repair": {
+      "file": "ANYsolver/tests/test_e4_pl_functional_constructor_policy.py",
+      "focused_passed": 1,
+      "evidence": "evidence/w1/platform-policy-final-7c6c4568b6",
+      "scope": "Exactclosed-worldcallers only; no solver/tolerance/admissionchange"
+    },
+    "default_report": {
+      "evidence": "evidence/w1/beam-report-diagnostic-917765cabb",
+      "counts": {
+        "PASS": 126,
+        "FAIL": 2,
+        "XFAIL": 2
+      },
+      "required_failure": "NLG-007",
+      "derived_failure": "NLG-003",
+      "cause": "Unchanged qualified-Q4 guard refuses warped plastic behavior; outside linear Workflow1",
+      "guard_and_required_case_status": "UNCHANGED; no legacyfallback/reclassification"
+    },
+    "process_budget_seconds": 2400,
+    "remaining_process_budget_seconds": 589.2511203999748,
+    "no_third_full_attempt": true,
+    "cleanup_verified": true,
+    "publication": "NOT_AUTHORIZED_NOT_PERFORMED"
+  },
+  "reference_repair_proposal": {
+    "path": "TRANSITION_REFERENCE_REPAIR_PROPOSAL.md",
+    "status": "MATHEMATICAL_REVIEW_ACCEPTED_PROSPECTIVE_ONLY",
+    "execution": "NOT_IMPLEMENTED_OR_EXECUTED; requiresfreshboundedqualificationregistration/authority; oldregistrationconsumed"
+  },
+  "git_delivery_authority": "User authorized merge and push; scientific qualification unchanged. Host merge still requires mandatory CI.",
+  "package_publication": "NOT_AUTHORIZED_NOT_PERFORMED"
+}

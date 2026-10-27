@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "state": "CONSUMED_COMPLETED",
+  "purpose": "W1.5 nontrivial coupled2-region/4-interface repeated-load/recovery measurement; not engineering accuracy or production qualification",
+  "fixture": "Exact reviewed two_replacements_four_transitions geometry from frozen extended_patch_manifest; homogeneous shared supports",
+  "counts": [
+    1,
+    10,
+    100,
+    1000
+  ],
+  "loads": "Right edge Fx=(1+0.1*sin(i))*1N and My=(0.2*cos(i))*E*a*t^3/12, consistent declared line weights; non-proportional linear combinations of membrane and bending",
+  "force_reference": 1.1001333333333334,
+  "displacement_reference": 0.03,
+  "normalization_derivation": "Fref=maxFx1.1N +maxMy/L (.2*0.0006666666666666669Nm/1m). Uref=1.1*membrane_tip(.025m)+.2*bending_tip(.0125m)=.03m, four interface references same.",
+  "reference": "Explicit independently assembled reduced/congruence-scaled KKT with separate SciPy LU of2basisRHS; host/reuse equivalence only, not independent physics reference.",
+  "reference_accounting": "One separate reference factorization/two reference RHS; one host factorization reused across1111RHS.",
+  "equivalence_limit": 1e-10,
+  "other_limits": "Per-RHS work1e-10, physical support-only force/moment1e-8, registered physical local+normwise residual1e-9.",
+  "measurements": "Backend prep and coupling timing wrappers restore public functions before solve; setup remainder includes native geometry+mesh conversion. Cold stiffness, factor, RHS solve, all-RHS tensor recovery and process working-set reported separately; no speedup or factor-memory claim.",
+  "bounds": {
+    "primary_dofs": 2000,
+    "multiplier_rows": 100,
+    "host_rhs": 1111,
+    "reference_rhs": 2,
+    "process_tree_timeout_seconds": 180,
+    "maximum_attempts": 1
+  },
+  "source_sha256": {
+    "C:\\Github\\ANYsolid\\src\\anysolid\\backend.py": "8061c166a0dc39eb312b0d5edbc9739b750900d587fddc53722d33d249357781",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\mesh.py": "befc8f69d8e7daf9c20f5c9e51e7312273ebf4f950ea803e6f9503576a87e803",
+    "C:\\Github\\ANYsolid\\src\\anysolid\\coupling.py": "d649efbd40d1469750cf5bb80d7f9a2c7310550481b92ce2663779ff10d87f64",
+    "C:\\Github\\ANYsolid\\tools\\strong_diagnostic.py": "82378f814c5344af1a1cf3cf1a79ef7bb00ad2f135fa5aab1df4fe4819cfe396",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solids.py": "d149308d42b00b68529f5c9b0cc45daf5d07164fd91c875aacdb0dce03f0ea22",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solid_trace.py": "f7e2e64f85ceb2442511b50d4e005cf2d98ad0b9ee6ca6e76a62c5ec7ed0b164",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\solid_residuals.py": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\e4_pl_element.py": "a1f7ce7e66be66ba6e9cceb80be27d5d7eeec38b01ad93673c264a4e008b00f4",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\e4_pl_s3_v2d_element.py": "3c736abe17f5c5d9c0f74a4836a7253518833e67fa13a7999cba64c6dc97f6fd",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\e4_pl_s3_v2c_element.py": "39cb171aa31f432eb937af972b30d709b5a51bfd5a977b51ac459b52b61aa8d8",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\elements.py": "55515cdf1dda318e54525e3511e992f12eb8ba013eadafc2c0bdd810796d86b7",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\assembly.py": "588a2d576efb9a147c7d198b3e70b428889c2479947aeadd976a81b217b55c97",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\matrix_assembly.py": "0af529ca28bd44e9c59975420f01ca662fab9fdf3119814a887443288434775b",
+    "C:\\Github\\ANYsolver\\src\\anysolver\\fe_core.py": "2377a0b492113a6ac80b009cebc9849c83867f7ac367f0a7d5d15d6c26153c0a",
+    "C:\\Github\\ANYsolver\\tests\\test_solid_coupling.py": "242a828fe82fefc73083d379acbdbe641e175bf3551dff0fa8ed8e5bc6e6432f",
+    "C:\\Github\\ANYsolver\\tests\\test_solid_trace_extensions.py": "487d36ac9c417e21497c4f2c4993ae17c6b1566a8cb055b0ec6c7deff067df61",
+    "C:\\Github\\ANYsolid\\docs\\extended_patch_manifest.json": "11203765e732ff36e64f879bdb778a14ef486649b552a8510a641194bff17e44",
+    "C:\\Github\\ANYsolid\\tools\\extended_patch_study.py": "26f8622e2aafd2a5c3c45d242f19398b1a64063a7e1d4d0b6910112055038ee3",
+    "C:\\Github\\ANYsolid\\tools\\repeated_load_study.py": "b1e82289eea42fba105e8a8debc7603eea6b5a660ac63f6e4ff41b912e8ce573"
+  },
+  "harness_sha256": "b3f1dfb1b0d22b61313a9b06f9264ce402f5d504b43160a5daf003d147fb5c65",
+  "failure_policy": "Exactlyone reviewedattempt, preservefailures/partialdata. No retuning, retries or condensation; remains research-only.",
+  "runtime": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "skfem": "12.0.2"
+  },
+  "review": "Independent non-author preflight found no execution blocker for one180secondattempt; root authorizes scopedmeasurement only.",
+  "executed_manifest_sha256": "489db77742033c5c779b3c1b3f695dbf4c12a87e8b7b2764befbfdf38b5019f6",
+  "evidence": "evidence/w1/workflow1-coupled-loads-52683f83ef",
+  "adjudication": "Independent non-author evidence/source review supports scopedrank2loadsubspace1111RHSreuse/recoverymeasurement; no rerun authority remains"
+}

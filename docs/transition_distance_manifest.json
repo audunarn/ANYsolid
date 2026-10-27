@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "state": "PREPARED_NO_FE_EXECUTION_AWAITING_INDEPENDENT_PREFLIGHT",
+  "scope": "FIRST nonuniform membrane engineering/transition-distance slice only. Does not close transverse/bending transition-distance or prior shear whole-body-reference gap. Research-only/NO_GO_PRODUCTION_UNQUALIFIED.",
+  "source_sha256": {
+    "C:/Github/ANYsolid/tools/extended_patch_study.py": "26f8622e2aafd2a5c3c45d242f19398b1a64063a7e1d4d0b6910112055038ee3",
+    "C:/Github/ANYsolid/src/anysolid/backend.py": "8061c166a0dc39eb312b0d5edbc9739b750900d587fddc53722d33d249357781",
+    "C:/Github/ANYsolid/src/anysolid/mesh.py": "befc8f69d8e7daf9c20f5c9e51e7312273ebf4f950ea803e6f9503576a87e803",
+    "C:/Github/ANYsolid/src/anysolid/coupling.py": "d649efbd40d1469750cf5bb80d7f9a2c7310550481b92ce2663779ff10d87f64",
+    "C:/Github/ANYsolver/src/anysolver/solids.py": "d149308d42b00b68529f5c9b0cc45daf5d07164fd91c875aacdb0dce03f0ea22",
+    "C:/Github/ANYsolver/src/anysolver/solid_trace.py": "f7e2e64f85ceb2442511b50d4e005cf2d98ad0b9ee6ca6e76a62c5ec7ed0b164",
+    "C:/Github/ANYsolver/src/anysolver/solid_residuals.py": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_element.py": "a1f7ce7e66be66ba6e9cceb80be27d5d7eeec38b01ad93673c264a4e008b00f4",
+    "C:/Github/ANYsolver/src/anysolver/elements.py": "55515cdf1dda318e54525e3511e992f12eb8ba013eadafc2c0bdd810796d86b7",
+    "C:/Github/ANYsolver/src/anysolver/assembly.py": "588a2d576efb9a147c7d198b3e70b428889c2479947aeadd976a81b217b55c97",
+    "C:/Github/ANYsolver/src/anysolver/matrix_assembly.py": "0af529ca28bd44e9c59975420f01ca662fab9fdf3119814a887443288434775b",
+    "C:/Github/ANYsolver/src/anysolver/fe_core.py": "2377a0b492113a6ac80b009cebc9849c83867f7ac367f0a7d5d15d6c26153c0a",
+    "C:/Github/ANYsolver/src/anysolver/boundary.py": "d3ccfaf8c609392ba30b99427ad34ef7510f1babf84bc7006b6ba4eff28888a8",
+    "C:/Github/ANYsolid/tools/finite_stability_study.py": "fecbd10f83d306e0929fc4a136408c16dc18d19570b98c7ec5c86ec6ef163be9",
+    "C:/Github/ANYsolid/docs/extended_patch_manifest.json": "11203765e732ff36e64f879bdb778a14ef486649b552a8510a641194bff17e44",
+    "C:/Github/ANYsolid/docs/finite_stability_manifest.json": "1a3535858ccb045e9842c84994bb4a2617a8a50e331efa42e94f14927d744901",
+    "C:/Github/ANYsolid/src/anysolid/multiplier.py": "03706a167e6d7ddf77c2afd81e55142273a005abf42e376448af6951a4d515e8",
+    "C:/Github/ANYsolid/docs/revised_multiplier_disposition.json": "9ae11bf0dd83f23cd898eb59f229735747a5488f1e868e3d65cc1a92ea882212",
+    "C:/Github/ANYsolid/tools/strong_diagnostic.py": "82378f814c5344af1a1cf3cf1a79ef7bb00ad2f135fa5aab1df4fe4819cfe396",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_s3_v2d_element.py": "3c736abe17f5c5d9c0f74a4836a7253518833e67fa13a7999cba64c6dc97f6fd",
+    "C:/Github/ANYsolver/src/anysolver/e4_pl_s3_v2c_element.py": "39cb171aa31f432eb937af972b30d709b5a51bfd5a977b51ac459b52b61aa8d8",
+    "C:/Github/ANYsolver/tests/test_solid_coupling.py": "242a828fe82fefc73083d379acbdbe641e175bf3551dff0fa8ed8e5bc6e6432f",
+    "C:/Github/ANYsolver/tests/test_solid_trace_extensions.py": "487d36ac9c417e21497c4f2c4993ae17c6b1566a8cb055b0ec6c7deff067df61",
+    "C:/Github/ANYsolid/.venv/Lib/site-packages/skfem/assembly/basis/cell_basis.py": "a2f4f74fda8c710f4b305da2658c5d810d83204515734a2f713ce41a8de11593",
+    "C:/Github/ANYsolid/.venv/Lib/site-packages/skfem/element/element_vector.py": "e0b820e0730c191f7f24d0498158d391afc9d19060a9786c791398de05525f0e",
+    "C:/Github/ANYsolid/.venv/Lib/site-packages/skfem/element/discrete_field.py": "51e4c978c31a80c789954c16872e982be24c92743e966a8ed28dc2bc567b8320",
+    "C:/Github/ANYsolid/.venv/Lib/site-packages/skfem/models/elasticity.py": "bd4e197d6aea0d4962e0e67166245485e0b85f149a1b41255ef90d0175c09693",
+    "C:/Github/ANYsolid/tests/test_transition_study.py": "4388ac3f719d7042135810aca025ffadffeb2f660086db8f4a2c16e9b492f5d5"
+  },
+  "numerics_path": "C:/Github/ANYsolid/tools/finite_stability_study.py",
+  "runtime": {
+    "actual_threadpools": [
+      {
+        "architecture": "SkylakeX",
+        "filepath": "C:\\Github\\ANYsolid\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "user_api": "blas",
+        "version": "0.3.31.188.0"
+      },
+      {
+        "architecture": "SkylakeX",
+        "filepath": "C:\\Github\\ANYsolid\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "user_api": "blas",
+        "version": "0.3.30"
+      }
+    ],
+    "numpy": "2.4.6",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "scipy": "1.17.1",
+    "skfem": "12.0.2",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "pythonpath": "C:/Github/ANYsolid/src;C:/Github/ANYsolver/src;C:/Github/ANYmaterial/src;C:/Github/ANYmesh/src;C:/Github/ANYgeometry/src;C:/Github/ANYfileIO/src"
+  },
+  "cases": [
+    {
+      "id": "core_length_0.5",
+      "core_x": [
+        0.25,
+        0.75
+      ],
+      "core_grid": [
+        4,
+        2,
+        2
+      ],
+      "native_axial_each_side": 5,
+      "native_width_intervals": 2,
+      "primary": 891,
+      "reduced": 873,
+      "multiplier_rows": 20,
+      "KKT": 893,
+      "minimum_ROI_interface_distance": 0.1875
+    },
+    {
+      "id": "core_length_1",
+      "core_x": [
+        0.0,
+        1.0
+      ],
+      "core_grid": [
+        8,
+        2,
+        2
+      ],
+      "native_axial_each_side": 4,
+      "native_width_intervals": 2,
+      "primary": 1455,
+      "reduced": 1437,
+      "multiplier_rows": 20,
+      "KKT": 1457,
+      "minimum_ROI_interface_distance": 0.4375
+    },
+    {
+      "id": "core_length_1.5",
+      "core_x": [
+        -0.25,
+        1.25
+      ],
+      "core_grid": [
+        12,
+        2,
+        2
+      ],
+      "native_axial_each_side": 3,
+      "native_width_intervals": 2,
+      "primary": 2019,
+      "reduced": 2001,
+      "multiplier_rows": 20,
+      "KKT": 2021,
+      "minimum_ROI_interface_distance": 0.6875
+    }
+  ],
+  "references": [
+    {
+      "grid": [
+        12,
+        8,
+        2
+      ],
+      "primary": 6375
+    },
+    {
+      "grid": [
+        24,
+        16,
+        4
+      ],
+      "primary": 43659
+    }
+  ],
+  "bounds": {
+    "coupled_primary": 2100,
+    "coupled_KKT": 2100,
+    "coupled_reduced": 2100,
+    "multiplier": 20,
+    "reference_primary": 50000,
+    "physical_solves": 5,
+    "inverse_assessments": 3,
+    "outer_seconds": 180,
+    "inner_seconds": 175
+  },
+  "criteria": {
+    "reference_field_energy": 0.001,
+    "reference_stress": 0.005,
+    "physical_field_energy": 0.01,
+    "physical_stress": 0.05,
+    "registered_residual": 1e-09,
+    "work_symmetry": 1e-10,
+    "force_moment": 1e-08,
+    "physical_output_amplification": 1000000.0,
+    "modal_amplification": 5000000.0,
+    "measured_field_energy": 0.009,
+    "measured_stress": 0.045
+  },
+  "material": {
+    "E": 1000.0,
+    "nu": 0.0,
+    "thickness": 0.2
+  },
+  "physical_BVP": {
+    "domain_x": [
+      -1.0,
+      2.0
+    ],
+    "domain_y": [
+      0.0,
+      1.0
+    ],
+    "domain_z": [
+      -0.1,
+      0.1
+    ],
+    "support": "Whole left face pointwise full translational clamp for 3D reference; matching native edge6DOFs0. No warping/end-section substitution.",
+    "load": "Right face tx(y)=20*y Pa fory<=.5,20*(1-y) fory>=.5; ty=tz=0. TotalFx1N,My0,Mz-.5Nm. Other faces natural0/body0. Native line qx=4*y or4*(1-y)N/m integrated against linear edge functions, weights1/6,2/3,1/6. Public upstream affine tractions only; noK*u load.",
+    "non_affinity": "Continuous triangular end traction is not one affine function over width. Coarsened B multiplier has only endpoints, so its P1width traction cannot represent this profile; interior flux/field is not an exact patch.",
+    "interpretation": "Engineering reduced-model comparison against same physical clamp/traction fullbody reference; distance dependence may include native/solid model differences. No unique interface-error attribution."
+  },
+  "geometry_comparison": "Core centeredx.5, lengths.5/1/1.5; uniformcorehx.125,ny2,nz2. Nativeaxialh.25,width2; stripcounts5/4/3. Core/primalpartition sizes do not adapt after results.",
+  "sampling": {
+    "fixed_x_ROI": [
+      0.4375,
+      0.5625
+    ],
+    "width_thickness": "ALL y,z, ALL9tensorcomponents at EVERY corequadpoint inROI. Union of allthreegeometry-only sample arrays used for referenceconvergence; duplicates retained. No smoothing/exclusion.",
+    "reference_point_stress": "Pinned upstream gbasis.grad/mapping/element_finder only; verificationprivatebasis access. Same chosen-cell convention on internal FEfaces; no averaging/exclusion. Crosscheckagainst own recoveratALLownquadpoints<=1e-10.",
+    "global_displacement": "All native node translations vsfine public trace; ALL core coefficient ownership/components vsfine public trace; maximum of both. Fullreferencecoarse coefficient points vsfine trace for convergence."
+  },
+  "normalization": {
+    "L": 1.0,
+    "F": 1.0,
+    "registered_U": 0.03,
+    "interface_U": [
+      0.03,
+      0.03
+    ],
+    "displacement_check": 0.015,
+    "stress_check": 5.0,
+    "zero_director_tilt_check": 0.005,
+    "work_check": 0.015,
+    "energy_error": "relative to independently computedfine referenceenergy",
+    "reference_difference": "field/.015, energy/fineenergy, stress/5Pa",
+    "conservative_norm_guards": "Requirefine maxcoefficient displacement>=.015 andfine maxsample stress>=5; fixedphysicalscales then no weaker than normrelativechecks. No error-basedfit.",
+    "native_rotation_scope": "Material-director tilts\u03b8x,\u03b8y expected0by thicknesssymmetry; native\u03b8z drilling reportedonly, not a3Ddirectorobservable. All native\u03b8 coordinates still conservatively included numericaloutputbound.",
+    "physical_output_factor": 6,
+    "factor_derivation": "ceil(max(U/.015,U/.005))=6 with L1; P selectiononly => s=1,D=I. ModalLambda repeats[5,5,5,150,150], F/(Lt) and6FL/t\u00b2; G=U||C_i||1. No knotdependentrenormalization."
+  },
+  "stability": {
+    "new_explicit_caps": "Parent adopted2100primary/KKT/reduced cap for newfamily; old2000primary admission is not silently reused.",
+    "certificate": {
+      "defect": "I-H_star*R RIGHTdefect only",
+      "inverse": "LU computed actions are fully checked; no assumed LU backward error and no norm estimator upper bound",
+      "stream_columns_maximum": 64,
+      "roundoff": "IEEE binary64 round-nearest/ties-even with gradual underflow, gamma_n=n*u/(1-n*u). Outward nextafter for each bound add/mul/div and row accumulation, exact-rational scalar constants.",
+      "underflow": "(2n+1)*minimum_subnormal/(1-n*u) additive bound per dot; scaling formation refuses every nonnormal/zero-underflow/nonfinite intermediate",
+      "abs_product_bound": "fl(absH@absR) corrected upward by(gamma_n,underflow) before either arithmetic or formation use",
+      "eta": "rowmax outward sum(|computed I-HR|+dot/subtract roundoff+formation correction)",
+      "inverse_block_bound": "||R_rows||inf/(1-eta) only ifeta<1",
+      "physical_output": "Case-specific exact-rational norm bound for DP*T divided by individual translation.015m and material-director rotation.005rad checks, U=.03m andL=1m; ceil(max(U/.015,U/(L*.005)))=6. Physical output upper=6*primal inverse upper. Inherited candidate-A .000125/.0005/factor4 text is not applicable to this membrane study.",
+      "delta": 1e-09,
+      "physical_output_allocation": 0.001,
+      "modal_traction_couple_allocation": 0.005,
+      "physical_output_amplification_max": 1000000.0,
+      "modal_traction_couple_amplification_max": 5000000.0,
+      "not_claimed": "Dual bound is modaltraction/couple only, NOT a recovered-interior-stress uncertainty certificate. No combined energy certificate."
+    },
+    "scaled_operator": {
+      "H": "[[S^-1*Kr*T,S^-1*B.T*Lambda],[G^-1*B*T,0]]",
+      "B": "C*P",
+      "D": "1translations,Lnative rotations; L=1",
+      "P": "selection only, one exact+1 per reduced column, disjoint row supports; noMPC/crosspoints",
+      "s": "max_j|D_j*P_jk|=1 exactly for registeredfamily",
+      "T": "diag(U/s)",
+      "S": "diag(F*s)",
+      "G": "stored rounded exact rational Uiface times positive l1 row norm of stored C D^-1",
+      "Lambda": "node-major repeats[F/(L*t),F/(L*t),F/(L*t),6F/t^2,6F/t^2], reference coupleF*L",
+      "formation_definition": "Ideal scaling in exact arithmetic of canonical stored physical Kr/B and stored S/T/G/Lambda; normal finite reciprocal plus2multiplications per storedentry. gamma4 conservative.",
+      "formation_relative_bound": "gamma4/(1-gamma4) times abs(storedH); include its product withabsR in RIGHTdefect bound",
+      "scope": "FE assembly input values and recorded scales define the discrete problem. Certificate does not enclose continuum/model/discretization error."
+    },
+    "implementation": "Exactsourcecompiledfecbd10 helper functions only; main/oldcasefunctions never invoked/monkeypatched. Allcoupled canonicalKKT cases fully streamed<=64columns perblock, rightdefect plus formation/roundoff enclosure, same1e6/5e6 allocation.",
+    "positive_energy": "Unregularized QRnullbasis/Cholesky numericalassessment up to2100; no condensation/truncation/penalty.",
+    "reference_stability": "Conforming upstream P2 homogeneous positive isotropic elasticity on connected domain with fullfaceessential clamp admits no rigid modes by Korn; direct unregularizedfreeLU plus physical1e-9residual, symmetry, exactwork/resultants. No fullinversecertificate claimed for43659reference."
+  },
+  "reference_acceptance": "Both independentfullbody referencechecks AND two-levelglobalfield/energy<=.001/stress<=.005 required before any coupled solve. Two-levelnumericalconvergence observation, no asymptoticrate or rigorouscontinuumerrorbound. Failure stops acceptance withprefix; no automatic extra refinement. Coupled measured.009/.045 is stricterthanoriginal.01/.05, bothreported; no rigorouscombinedenergy/stressuncertaintycertificate inferred.",
+  "work_arithmetic": "Prospectively EXACTdyadic accumulator ofall stored binaryK entries/q and actual externalF; fixedhomogeneous supports. Integer exponentbins are algebraically equal to Fraction product sum, validated onindependent synthetic<=3x3 cases. Compareexactratio toFraction(1e-10); no postfailurefallback.",
+  "terminal": "5physicalsolvesmax=2refs+3coupled;3certificateassessmentsmax;one180outer/175inner; stopfirstexecutionerror; noautotry/additionalcase/tuning; preserveallaccuracyflags/partialcounts/fullfields/sourceidentities.",
+  "harness_sha256": "61eb85ce7845e49eb7c0e60d1ace86091bc8c4432a5b018a9918b16294c5335b"
+}

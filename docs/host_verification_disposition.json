@@ -1,0 +1,35 @@
+{
+  "status": "HOST_REQUIRED_VERIFICATION_CASE_FAILED_NO_GO",
+  "full_inventory_passed": false,
+  "original_full_attempt": "evidence/w1/platform-local-portable-2da6ea1ac8",
+  "repaired_full_attempt": "evidence/w1/platform-local-repair-e05c24d29d/full",
+  "repaired_full_known_counts": {
+    "passed": 350,
+    "failed": 2,
+    "skipped": 10,
+    "deselected": 19
+  },
+  "policy_repair": {
+    "file": "ANYsolver/tests/test_e4_pl_functional_constructor_policy.py",
+    "focused_passed": 1,
+    "evidence": "evidence/w1/platform-policy-final-7c6c4568b6",
+    "scope": "Exactclosed-worldcallers only; no solver/tolerance/admissionchange"
+  },
+  "default_report": {
+    "evidence": "evidence/w1/beam-report-diagnostic-917765cabb",
+    "counts": {
+      "PASS": 126,
+      "FAIL": 2,
+      "XFAIL": 2
+    },
+    "required_failure": "NLG-007",
+    "derived_failure": "NLG-003",
+    "cause": "Unchanged qualified-Q4 guard refuses warped plastic behavior; outside linear Workflow1",
+    "guard_and_required_case_status": "UNCHANGED; no legacyfallback/reclassification"
+  },
+  "process_budget_seconds": 2400,
+  "remaining_process_budget_seconds": 589.2511203999748,
+  "no_third_full_attempt": true,
+  "cleanup_verified": true,
+  "publication": "NOT_AUTHORIZED_NOT_PERFORMED"
+}

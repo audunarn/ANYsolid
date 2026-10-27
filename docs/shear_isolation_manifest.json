@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "authorization": "2026-10-27 user Proceed; new bounded discriminating investigation, not reuse or renewal of the completed three-level campaign",
+  "question": "How much of the failed coupled shear recovery is reproduced by the same P2 solid discretization under analytic solid-only end displacements?",
+  "hypotheses": {
+    "solid_discretization": "Large error persists in the analytic-boundary solid solve and changes under isolated resolution changes",
+    "transition_or_host": "Analytic-boundary solid recovery is accurate while the coupled result remains inaccurate",
+    "mixed": "Both contribute; this experiment does not uniquely prove a connector mechanism or convergence rate"
+  },
+  "reference_manifest": "transverse_shear_comparison_manifest.json",
+  "reference_harness": "../tools/transverse_shear_comparison.py",
+  "reference_harness_sha256": "475940b3ae0273395e87195698ef10d09c493181aeedd40d47005c7e28089965",
+  "retained_coupled_evidence": "../evidence/w1/transverse-comparison-afc765db20",
+  "reuse_impact": "Only recorded source change since that run is empty-RHS rejection in solid_residuals.py; it cannot affect one-RHS physical solves. Existing failed coupling results are not rerun or relabelled.",
+  "allowed_source_changes": [
+    {"path": "C:/Github/ANYsolver/src/anysolver/solid_residuals.py", "retained_sha256": "76fbc7faaee40a3e4111c6b8cda0fa3dc4e7b708b8b59cf58d4d4695485504d2", "current_sha256": "49c9683b3a4ae43d3a2152a8a867a0cb171bfb6519de6e1ee0ddf1c52f0856d0", "impact": "Empty-RHS guard only; investigated cases have one RHS"}
+  ],
+  "geometry": {"solid_x_m": [0.0,1.0], "y_m": [0.0,1.0], "z_m": [-0.1,0.1]},
+  "meshes": [
+    {"id": "original_solid", "nx": 4, "ny": 1, "nz": 8},
+    {"id": "axial_only", "nx": 8, "ny": 1, "nz": 8},
+    {"id": "width_only", "nx": 4, "ny": 2, "nz": 8},
+    {"id": "thickness_only", "nx": 4, "ny": 1, "nz": 16}
+  ],
+  "controlled_input": "E=1000Pa, nu=0, Q=.001N, global xi=x+1 and span3m; unchanged analytic Saint-Venant displacement/stress from reference harness",
+  "routes": {
+    "nodal_interpolant": "Evaluate analytic displacement at actual upstream coefficient locations/components; recover upstream stress. Not a solved FE state or best-approximation lower bound.",
+    "analytic_boundary_solve": "Prescribe analytic physical displacement at all upstream boundary DOFs on x=0 and x=1, including cubic warping nodal values. Zero body force and free lateral faces. Solve with ANYsolver SolidModel and registered_v2. Exact continuum solution satisfies these boundary data; P2 boundary interpolation/discretization remains part of the measured error. No K*u load substitution."
+  },
+  "fixed_scales": {"length_m": 1.0, "force_N": 0.001, "displacement_m": 0.013536, "axial_stress_Pa": 0.3, "shear_stress_Pa": 0.0075},
+  "sampling": "ALL quadrature samples with0.25<=x<=0.75; same region and per-component error normalizations as original. Store full samples and controlling-point coordinates; no post-hoc exclusions.",
+  "additional_diagnostics": "End support force/moment resultants from K*u at prescribed coefficients and actual coordinates. Expected force_z left=-Q/right=+Q; moment_y about each end centroid left=+2Q Nm/right=-Q Nm. Report errors, not an added release gate.",
+  "acceptance": {"numerical_residuals": 1e-9, "retained_shear_accuracy_limit": 0.05, "claim": "Diagnostic discrimination only. No production promotion, no inference of uniform stability, no automatic attribution to interface, no new empirical correction or shear smoothing. Original NO_GO remains."},
+  "bounds": {"meshes": 4, "maximum_solid_solves": 4, "maximum_primary_dofs": 4000, "process_tree_timeout_seconds": 180, "partial_jsonl_flushed": true, "no_numerical_retry_or_added_mesh_without_new_discriminating_design": true}
+}

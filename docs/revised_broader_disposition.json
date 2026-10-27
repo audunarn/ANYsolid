@@ -1,0 +1,30 @@
+{
+  "status": "SCIENTIFIC_NO_GO_REGISTERED_DOUBLE_EVALUATION",
+  "evidence": "evidence/w1/revised-broader-physics-016d398003",
+  "process_wall_seconds": 3.437000000005355,
+  "exit_code": 1,
+  "execution_failures": 0,
+  "cleanup_active_processes": 0,
+  "registration_consumed": true,
+  "metric_results": 3,
+  "metric_passes": 3,
+  "physical_results": 3,
+  "physical_all_gates_passed": 2,
+  "failed_case": "two_replacements_four_transitions",
+  "failed_gate": "energy_external_support_work",
+  "normalized_work_error": 1.0614817842248283e-10,
+  "unchanged_work_limit": 1e-10,
+  "twice_energy": 3.3333333338025692e-06,
+  "external_work": 3.333333333448742e-06,
+  "support_work": 0.0,
+  "passed_cases": [
+    "mixed_bending_weak",
+    "s3_width_bending_min3_term"
+  ],
+  "withheld_case": "q4_membrane_shifted_4_5: input spacing ratio2.5 exceeds unchanged policy limit2",
+  "production": "NO_GO",
+  "retry": "NOT_PERFORMED; one-attempt registration consumed",
+  "independent_review": "Non-author verified original2PASS/1FAIL, allsourceIDs/counts,0executionerrors. Exact retained arithmetic diagnostic indicates contraction cancellation; distinct correction audit pending, no failedrecordreplacement.",
+  "separate_exact_evaluation": "ACCEPTED; see exact_retained_work_disposition.json; original status and terminal remain FAILED",
+  "combined_finite_scope": "Three finite cases supported by original unaffected checks plus separate exact retained work evaluation. Not production."
+}

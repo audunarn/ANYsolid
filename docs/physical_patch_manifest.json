@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "purpose": "Prospective exact representable coupled patches; no production promotion or general convergence claim",
+  "geometry": {"span": 3.0, "width": 1.0, "thickness": 0.2, "solid_x": [0.0,1.0], "shell_reference_z": 0.0, "nshell": 1, "nsolid": 1},
+  "E": 1000.0,
+  "thresholds": {"nodal_displacement_rotation_relative": 0.01, "global_energy_relative": 0.01, "interior_stress_max_scaled": 0.05, "registered_residual": 1e-9},
+  "sampling": "solid quadrature samples with 0.25<=x<=0.75; max tensor component error divided by declared nonzero stress scale",
+  "cases": {
+    "poisson_membrane": {
+      "nu": 0.3, "F": 1.0, "epsilon": 0.005,
+      "solid_exact": "u=(epsilon*(x+1),-nu*epsilon*(y-0.5),-nu*epsilon*z)",
+      "shell_exact": "u_ref=(epsilon*(x+1),-nu*epsilon*(y-0.5),0), theta=0",
+      "left_prescription": "exact shell field at x=-1; all six DOFs",
+      "loads": "right native edge uniform force_x total1N; other physical external surfaces traction-free",
+      "stress": "sigma_xx=5Pa, others0", "stress_scale": 5.0,
+      "twice_energy": 0.015, "scales": {"length": 1.0, "force": 1.0, "displacement": 0.015}
+    },
+    "in_plane_shear": {
+      "nu": 0.0, "tau": 1.0, "gamma": 0.002,
+      "solid_exact": "u=(gamma*(y-0.5)/2,gamma*(x+1)/2,0)",
+      "shell_exact": "same midsurface u, theta=0",
+      "left_prescription": "exact shell field at x=-1; all six DOFs",
+      "loads": "right native edge force_y total tau*t*width=.2N; y=1 physical side traction_x=+tau and y=0 traction_x=-tau; native side edge equivalent line force_x=+/-tau*t integrated consistently",
+      "stress": "sigma_xy=sigma_yx=1Pa, others0", "stress_scale": 1.0,
+      "twice_energy": 0.0012, "scales": {"length": 1.0, "force": 0.2, "displacement": 0.003}
+    },
+    "transverse_shear": {
+      "execution_status": "NOT_EXECUTED_CONSTITUTIVE_MISMATCH",
+      "preflight_reason": "Native production E4-PL uses As=(5/6)*t*G. This constant 3D shear field would require uncorrected As=t*G. No numerical result or pass is claimed; replace with independently registered compatible parabolic-shear/Timoshenko convergence case without changing tolerances.",
+      "nu": 0.0, "tau": 1.0, "gamma": 0.002,
+      "solid_exact": "u=(gamma*z/2,0,gamma*(x+1)/2)",
+      "shell_exact": "u_ref=(0,0,gamma*(x+1)/2), theta_y=gamma/2",
+      "left_prescription": "exact shell field at x=-1; all six DOFs including theta_y",
+      "loads": "right native edge force_z total tau*t*width=.2N; solid z=+t/2 traction_x=+tau, z=-t/2 traction_x=-tau; each native shell area gets uniform distributed moment_y density tau*t integrated as consistent nodal moments",
+      "stress": "sigma_xz=sigma_zx=1Pa, others0", "stress_scale": 1.0,
+      "twice_energy": 0.0012, "scales": {"length": 1.0, "force": 0.2, "displacement": 0.003}
+    },
+    "twist": {
+      "nu": 0.0, "curvature": 0.001,
+      "solid_exact": "u=(a*(y-0.5)*z,a*(x+1)*z,-a*(x+1)*(y-0.5))",
+      "shell_exact": "u_ref=(0,0,-a*(x+1)*(y-0.5)), theta=(-a*(x+1),a*(y-0.5),0)",
+      "left_prescription": "exact shell field at x=-1; all six DOFs",
+      "loads": "M=E*a*t^3/12=.0006666666666666668; right native edge total moment_x=-M; solid y=1 traction_x=+E*a*z and y=0 traction_x=-E*a*z; native y=1 side edge moment_y line density +M, y=0 -M",
+      "stress": "sigma_xy=sigma_yx=E*a*z, others0", "stress_scale": 0.1,
+      "twice_energy": 0.000004000000000000001, "scales": {"length": 1.0, "force": 0.0006666666666666668, "displacement": 0.003}
+    }
+  },
+  "bounds": {"maximum_primary_dofs": 4000, "process_tree_timeout_seconds": 180, "partial_results_flushed": true},
+  "reference_policy": "Closed-form isotropic 3D continuum fields and matching physical shell traces. Keep prescribed nonzero reference fields and all required external surfaces; do not substitute K*u loads or retune fields to obtain a pass. Record failures and stop promotion."
+}

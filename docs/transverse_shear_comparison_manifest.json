@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "purpose": "Engineering comparison and discretization refinement; NOT an exact patch of the finite-mode connector",
+  "reference_identity": "independent nu=0 3D Saint-Venant/Timoshenko section field; parabolic interface flux lies outside the five-mode multiplier space",
+  "known_model_discrepancy": "Admissible delta_u_z=(z^2-t^2/12)/t has zero connector moments but parabolic shear does work -Q*t/30. Therefore mesh refinement cannot remove all interface modeling error. No retuning or exact-coupled claim allowed.",
+  "material": {"E_Pa": 1000.0, "nu": 0.0, "G_Pa": 500.0},
+  "geometry": {"left_x": -1.0, "right_x": 2.0, "solid_x": [0.0,1.0], "span_m": 3.0, "width_m": 1.0, "thickness_m": 0.2},
+  "force_N": 0.001,
+  "shear_correction": 0.8333333333333334,
+  "reference": {
+    "xi": "x+1",
+    "A": "width*t=0.2",
+    "I": "width*t^3/12=0.0006666666666666668",
+    "moment": "Q*(xi-L)",
+    "theta_y": "Q/(E*I)*(xi^2/2-L*xi)",
+    "w": "Q*xi/(kappa*G*A)-Q/(E*I)*(xi^3/6-L*xi^2/2)",
+    "warp": "Q/(G*A)*[(3/2-1/kappa)*z-2*z^3/t^2]",
+    "solid_u": "(theta_y*z+warp,0,w)",
+    "sigma_xx": "Q*(xi-L)*z/I",
+    "sigma_xz": "3*Q/(2*A)*(1-4*z^2/t^2)",
+    "tip_w_m": 0.013536,
+    "tip_theta_y_rad": -0.00675,
+    "twice_energy_Nm": 0.000013536
+  },
+  "loads_and_supports": "Native left edge all6 DOFs zero, right edge total force_z=Q using consistent line weights. Solid lateral surfaces free, no body load; two weak transitions with explicit multiplier knots[0,1]. No K*u reference loading.",
+  "levels": [
+    {"native_axial_elements_per_side": 1, "solid_nx": 1, "solid_ny": 1, "solid_nz": 2},
+    {"native_axial_elements_per_side": 2, "solid_nx": 2, "solid_ny": 1, "solid_nz": 4},
+    {"native_axial_elements_per_side": 4, "solid_nx": 4, "solid_ny": 1, "solid_nz": 8}
+  ],
+  "sampling": "solid quadrature points with0.25<=x<=0.75; retain per-component errors and interface-layer distinction",
+  "scales": {"length_m": 1.0, "force_N": 0.001, "displacement_m": 0.013536, "interface_displacements_m": [0.013536,0.013536], "axial_stress_Pa": 0.3, "shear_stress_Pa": 0.0075},
+  "acceptance": {"coarse_levels": "diagnostic errors, not required to meet final accuracy", "finest_tip_w_rotation_energy_relative_max": 0.01, "finest_axial_and_shear_component_error_max": 0.05, "registered_residuals_max": 1e-9, "interpretation": "Meeting targets supports only this engineering comparison; plateau/modeling error and actual mixed-interface independent reference remain open. Any failed finest target is retained as NO_GO; do not change limits or exclude samples after observing results."},
+  "bounds": {"maximum_primary_dofs": 4000, "maximum_multiplier_rows": 40, "process_tree_timeout_seconds": 180, "partial_results_flushed": true}
+}
