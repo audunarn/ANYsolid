@@ -72,7 +72,7 @@ def test_profiles_are_explicit_and_nonempty(profile, monkeypatch, tmp_path):
 
 
 def test_full_covers_all_current_adapter_modules():
-    selected = dev_checks.selection("full", dev_checks.ROOT.parent / "ANYsolver")
+    selected = dev_checks.selection("full", dev_checks.ROOT.parent / "ANYfeSolver")
     assert selected[0] == str(dev_checks.ROOT / "tests")
     assert {Path(path).name for path in selected[1:]} == {
         "test_solid_models.py", "test_solid_residuals.py", "test_solid_coupling.py",

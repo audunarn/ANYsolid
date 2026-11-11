@@ -1,7 +1,7 @@
 # Numerical backend contract
 
 `anysolid` lazily exports `SolidMesh`, `PreparedSolid`, `Recovery`, `prepare`.
-No ANYmesher, ANYgeometry or ANYsolver imports occur in the backend. Numerical
+No ANYmesher, ANYgeometry or ANYfeSolver imports occur in the backend. Numerical
 dependencies are loaded on first access to a numerical class or operation.
 Importing `prepare` is also lazy. scikit-fem is optional through the `skfem`
 extra; preparation without it reports `python -m pip install "ANYsolid[skfem]"`.

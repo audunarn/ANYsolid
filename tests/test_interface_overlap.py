@@ -1,4 +1,4 @@
-"""Exact chart-triangle overlap checks; no ANYsolver dependency or FE solves."""
+"""Exact chart-triangle overlap checks; no ANYfeSolver dependency or FE solves."""
 import numpy as np
 import pytest
 from anysolid.coupling import _area, _intersection, _positive_area_triangle_intersection

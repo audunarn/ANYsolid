@@ -55,7 +55,7 @@ def terminate(process):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("profile", choices=PROFILES)
-    parser.add_argument("--solver-root", type=Path, default=ROOT.parent / "ANYsolver")
+    parser.add_argument("--solver-root", type=Path, default=ROOT.parent / "ANYfeSolver")
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--jit", choices=("on", "off"), default="on")
     parser.add_argument("--collect-only", action="store_true")

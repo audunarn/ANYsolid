@@ -241,7 +241,7 @@ def test_call_refusal():
 
 
 def test_import_is_lazy_and_has_no_sibling_imports():
-    code = "import anysolid,sys; assert not {'numpy','scipy','skfem','anysolver','anymesher','anygeometry'} & sys.modules.keys()"
+    code = "import anysolid,sys; assert not {'numpy','scipy','skfem','anyfesolver','anysolver','anymesher','anygeometry'} & sys.modules.keys()"
     env = dict(os.environ, PYTHONPATH=str(Path(__file__).resolve().parents[1] / 'src'))
     subprocess.run([sys.executable, '-c', code], check=True, timeout=10, env=env)
 

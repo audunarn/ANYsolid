@@ -1,6 +1,6 @@
-"""Opt-in ANYsolver host statics; run with both packages installed."""
+"""Opt-in ANYfeSolver host statics; run with both packages installed."""
 from anysolid import SolidMesh
-from anysolver import SolidModel
+from anyfesolver import SolidModel
 
 mesh=SolidMesh([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[0.,0.,1.]],[[0,1,2,3]],
                boundary_facets=[[0,2,1]],boundary_ids=[100],boundary_groups={'clamp':[100]})

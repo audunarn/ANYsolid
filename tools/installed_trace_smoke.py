@@ -4,15 +4,15 @@ import json
 from pathlib import Path
 import sys
 import numpy as np
-import anysolver
-from anysolver.elements import create_shell_element
-from anysolver.solid_trace import ShellEdgeTrace
-from anysolver.solids import SolidModel
+import anyfesolver
+from anyfesolver.elements import create_shell_element
+from anyfesolver.solid_trace import ShellEdgeTrace
+from anyfesolver.solids import SolidModel
 
 assert sys.flags.isolated
-assert "site-packages" in Path(anysolver.__file__).parts
+assert "site-packages" in Path(anyfesolver.__file__).parts
 assert "diagnostic_strong_tying" in inspect.signature(SolidModel.add_interface).parameters
-model = anysolver.FEModel("installed-S3-linear-trace")
+model = anyfesolver.FEModel("installed-S3-linear-trace")
 model.add_material("m",1000.,0.)
 for node,xyz in enumerate(((0.,0.,0.),(1.,0.,0.),(0.,1.,0.)),1):
     model.add_node(node,*xyz)
@@ -23,4 +23,4 @@ q[model.mesh.dof_manager.get_node_dofs(1)[4]] = 1.
 value = trace.displacement_operator([[.5,0.,0.]]) @ q
 np.testing.assert_allclose(value,[0.,0.,-.125],atol=1e-14)
 print(json.dumps({"status":"passed", "scope":"installed small-linear S3 trace smoke only",
-                  "origin":anysolver.__file__,"trace":value.tolist()}))
+                  "origin":anyfesolver.__file__,"trace":value.tolist()}))

@@ -10,7 +10,7 @@ def pytest_sessionfinish(session, exitstatus):
     from threadpoolctl import threadpool_info
     root = Path(__file__).resolve().parents[1]
     expected = {"anysolid": root / "src/anysolid",
-                "anysolver": Path(os.environ["ANYSOLID_DEV_SOLVER"]) / "src/anysolver"}
+                "anyfesolver": Path(os.environ["ANYSOLID_DEV_SOLVER"]) / "src/anyfesolver"}
     imports = {name: str(Path(module.__file__).resolve()) for name, module in dict(sys.modules).items()
                if name.split(".")[0] in expected and getattr(module, "__file__", None)}
     errors = ["wrong source import: " + name for name, path in imports.items()
