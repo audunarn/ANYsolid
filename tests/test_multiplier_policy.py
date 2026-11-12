@@ -1,4 +1,4 @@
-"""Pure geometric policy tests; independent of ANYsolver and FE fixtures."""
+"""Pure geometric policy tests; independent of ANYfeSolver and FE fixtures."""
 import numpy as np
 import pytest
 from anysolid.multiplier import coarsened_p1_partition

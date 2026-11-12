@@ -4,13 +4,13 @@ import json
 from pathlib import Path
 import sys
 import numpy as np
-import anysolver
+import anyfesolver
 
-assert 'site-packages' in Path(anysolver.__file__).parts
+assert 'site-packages' in Path(anyfesolver.__file__).parts
 assert 'anysolid' not in sys.modules and 'skfem' not in sys.modules
-native=anysolver.FEModel('installed-shell-only-import')
+native=anyfesolver.FEModel('installed-shell-only-import')
 assert 'anysolid' not in sys.modules and 'skfem' not in sys.modules
-from anysolver import SolidModel,ResidualScales
+from anyfesolver import SolidModel,ResidualScales
 assert 'anysolid' not in sys.modules and 'skfem' not in sys.modules
 from anysolid import SolidMesh
 
@@ -20,13 +20,13 @@ model=SolidModel(residual_scales={'body':ResidualScales(1.,1.,.003)})
 region=model.add_region('tet',mesh,{'elastic_modulus':1000.,'poisson_ratio':.3})
 region.prescribe('clamp',0.)
 region.set_load('body',region.prepared.body_load([1.,2.,3.]))
-values,info=anysolver.solve_linear_many(model,['body','body'])
+values,info=anyfesolver.solve_linear_many(model,['body','body'])
 assert values.shape==(30,2)
 np.testing.assert_array_equal(values[:,0],values[:,1])
 assert info['registered_residual_report']['passed']
 assert info['factorization_count']==1 and info['solve_count']==2
-print(json.dumps({'status':'passed','host_module':anysolver.__file__,
-    'host_version':anysolver.__version__,'isolated':bool(sys.flags.isolated),
+print(json.dumps({'status':'passed','host_module':anyfesolver.__file__,
+    'host_version':anyfesolver.__version__,'isolated':bool(sys.flags.isolated),
     'residual_policy':info['residual_policy'],'normalized_equilibrium':info['normalized_equilibrium'],
     'distributions':{name:importlib.metadata.version(name) for name in
-        ('ANYsolver','ANYsolver-results','ANYsolid','ANYmaterial','ANYmesher','ANYgeometry','ANYfileio','scikit-fem')}}))
+        ('ANYfeSolver','ANYfeSolver-results','ANYsolid','ANYmaterial','ANYmesher','ANYgeometry','ANYfileio','scikit-fem')}}))

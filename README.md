@@ -39,7 +39,7 @@ P1/P2 displacement spaces, finite E > 0 and 0 ≤ nu ≤ 0.45. C3D10/curved geom
 nonlinear mechanics, dynamics and contact are unsupported. Analytical patch
 checks do not establish engineering convergence or production weak coupling.
 
-The ANYsolver integration now provides an explicit `SolidModel` wrapper and
+The ANYfeSolver integration now provides an explicit `SolidModel` wrapper and
 single/multiple-RHS dispatch. See [host example](examples/host_all_solid.py).
 The planar Q4 weak connector is **research-only / production NO_GO**. The
 approved registered local/normwise residual checks, membrane, bending and

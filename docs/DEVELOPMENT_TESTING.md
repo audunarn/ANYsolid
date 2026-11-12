@@ -1,7 +1,7 @@
 # Development testing
 
 Run from ANYsolid with the environment containing `.[skfem,test]` and, for host
-profiles, the supported ANYsolver ecosystem dependencies. Use that environment's
+profiles, the supported ANYfeSolver ecosystem dependencies. Use that environment's
 Python explicitly; no new environment or installation is needed per edit.
 
 | Change / purpose | Command |
@@ -14,8 +14,8 @@ Python explicitly; no new environment or installation is needed per edit.
 | Shared API/dependencies, cross-boundary changes, unfamiliar impact, pre-handoff | `python tools/dev_checks.py full` |
 
 Backend changes also require host/coupling coverage before handoff. `full` runs
-all ANYsolid tests and the explicitly registered ANYsolver solid adapter modules. It is
-**not** the full ANYsolver regression suite. Changes to native solver paths also
+all ANYsolid tests and the explicitly registered ANYfeSolver solid adapter modules. It is
+**not** the full ANYfeSolver regression suite. Changes to native solver paths also
 require the relevant owner tests and its existing portable CI. New host adapter
 test modules must be added to `tools/dev_checks.py` before claiming full adapter
 coverage. No automatic changed-file guessing or cached green result suppresses tests.
@@ -25,7 +25,7 @@ Documentation-only edits need link/diff inspection rather than numerical reruns.
 admission/refusal tests can add constructor call sites, so this catches their
 inventory impact before the larger portable CI run. Fast coupling and backend
 profiles retain their existing scope. For a constructor-policy-only edit, run
-`python -m pytest -q ../ANYsolver/tests/test_e4_pl_functional_constructor_policy.py`
+`python -m pytest -q ../ANYfeSolver/tests/test_e4_pl_functional_constructor_policy.py`
 with the host source dependencies available.
 
 Profiles are explicit and nonempty. `--dry-run` lists the exact command without

@@ -14,9 +14,9 @@ import numpy as np
 from skfem import MeshTet
 from anysolid import SolidMesh,prepare
 from anysolid.coupling import build_weak_connector
-from anysolver import FEModel
-from anysolver.elements import create_shell_element
-from anysolver.solid_trace import ShellEdgeTrace
+from anyfesolver import FEModel
+from anyfesolver.elements import create_shell_element
+from anyfesolver.solid_trace import ShellEdgeTrace
 
 corners=np.linspace(0.,1.,5)
 knots=coarsened_p1_partition(corners,corners)

@@ -8,7 +8,7 @@ import tempfile
 CODE = r'''
 import json, pathlib, sys
 import anysolid
-assert not {'skfem','anysolver'} & sys.modules.keys()
+assert not {'skfem','anyfesolver','anysolver'} & sys.modules.keys()
 assert not pathlib.Path(anysolid.__file__).resolve().is_relative_to(pathlib.Path(sys.argv[1]).resolve())
 import numpy as np
 mesh = anysolid.SolidMesh(coordinates=np.array([[0.,0.,0.],[1.,0.,0.],[0.,1.,0.],[0.,0.,1.]]),

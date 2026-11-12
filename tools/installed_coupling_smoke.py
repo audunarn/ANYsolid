@@ -5,15 +5,15 @@ import sys
 import numpy as np
 from skfem import MeshTet
 import anysolid
-import anysolver
+import anyfesolver
 from anysolid import SolidMesh,prepare
 from anysolid.coupling import build_weak_connector
-from anysolver.elements import create_shell_element
-from anysolver.solid_trace import ShellEdgeTrace
+from anyfesolver.elements import create_shell_element
+from anyfesolver.solid_trace import ShellEdgeTrace
 
 assert sys.flags.isolated
-assert all('site-packages' in Path(module.__file__).parts for module in (anysolid,anysolver))
-native=anysolver.FEModel('installed-1-to-8-geometry')
+assert all('site-packages' in Path(module.__file__).parts for module in (anysolid,anyfesolver))
+native=anyfesolver.FEModel('installed-1-to-8-geometry')
 native.add_material('m',1000.,0.)
 for i,xyz in enumerate(((-1.,0.,0.),(0.,0.,0.),(0.,1.,0.),(-1.,1.,0.)),1):
     native.add_node(i,*xyz)
@@ -26,5 +26,5 @@ prepared=prepare(SolidMesh(snapshot.coordinates,snapshot.cells,boundary_groups={
 operator=build_weak_connector(ShellEdgeTrace(native,[(1,1)]),prepared,'left',multiplier_breakpoints=[0.,1.])
 assert operator.C_shell.shape==(10,24) and operator.C_solid.shape==(10,765)
 assert operator.metadata['status']=='NO_GO_PRODUCTION_UNQUALIFIED'
-print(json.dumps({'status':'passed_geometry_smoke','shell_origin':anysolver.__file__,
+print(json.dumps({'status':'passed_geometry_smoke','shell_origin':anyfesolver.__file__,
                   'solid_origin':anysolid.__file__,'rows':10,'production':'NO_GO'}))
